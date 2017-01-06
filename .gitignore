@@ -1,0 +1,28 @@
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# Backups and Autosaves
+*~
+*.#*
+*#*#
+
+# Exporting
+*.txt
+*.html
+*.pdf
+*.tex
+ltxpng
+
+# Source
+*.el
+*.py
+*.clojure
+*.c
+*.cpp
+*.clj
+
+notes
+code

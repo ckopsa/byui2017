@@ -1,0 +1,32 @@
+#+TITLE: Weekly Assignment 00
+#+LANGUAGE: en
+#+OPTIONS: H:4 num:nil toc:nil \n:nil @:t ::t |:t ^:t *:t TeX:t LaTeX:t
+#+STARTUP: showeverything
+
+Please answer the following questions. Please also keep track of the time you
+spend on this assignment, broken down by task.
+
+* TODO Answer What is True
+
+  If you can truthfully assert that you did any of the following, put an X in
+  the box. (Later, when you have Spacemacs bindings, putting the cursor anywhere
+  on the line and typing , , (two commas) will toggle the X for you.)
+
+  - [ ] I got a GitHub account, or I already had one.
+  - [ ] I found and worked through an introductory GitHub/Git tutorial, or I am
+    already GitHub/Git-literate.
+  - [ ] I obviously signed up for GitHub Classroom, as that is how I got access
+    to this file.
+  - [ ] I (re)read the introductory section of [[https://rickneff.github.io][The Book]].
+
+* TODO Time Tracking Report
+
+  Here is where you will report the time you tracked. For example:
+
+|-------------------------------+--------|
+| *Total time*                  | *1:12* |
+|-------------------------------+--------|
+| DONE GitHub Account Setup     |   0:15 |
+| DONE GitHub/Git Acquaintance  |   0:22 |
+| DONE GitHub Classroom Joining |   0:07 |
+| DONE Book Reading             |   0:28 |
