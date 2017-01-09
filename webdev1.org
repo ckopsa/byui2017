@@ -110,6 +110,9 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
      local area network
    - uses protocols to control the passing of information and to avoid
      simultaneous transmission by two or more systems.
+   - a family of computer networking technologies commonly used in
+     local area networks and metropolitan area networks
+   - https://en.wikipedia.org/wiki/Ethernet
    - Google Definition
 10. FTP
     - the commonly used protocol for exchanging files over the Internet
@@ -119,60 +122,159 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
 11. HTML
     - Hyper Text Markup Language
     - the standard markup language for creating Web pages
+    - describes and defines the content of a webpage
     - http://www.w3schools.com
+    - https://developer.mozilla.org/en-US/docs/Web/HTML
 12. HTTP
     - provides communication interface for connections between browsers and Web servers
+    - the foundation of data communication for the World Wide Web
+    - https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#pc1
     - Programming the World Wide Web - pg 2
 13. IP address
     - a unique 32-bit number that represents the address of a computer connected to the internet
+    - a unique string of numbers separated by periods that identifies each computer using the  Internet Protocol to communicate over a network
     - Programming the World Wide Web - pg 4
+    - Google Definition
 14. JQuery
+    - a cross-platform JavaScript library designed to simplify the
+      client-side scripting of HTML
+    - makes things like HTML document traversal and manipulation,
+      event handling, animation, and Ajax much simpler with an
+      easy-to-use API that works across a multitude of browsers
+    - https://en.wikipedia.org/wiki/JQuery
+    - https://jquery.com/
 15. MIME
     - Multipurpose Internet Mail Extension
     - developed to specify format of different kinds of documents
     - originally used with internet mail, but was adopted to the Web
+    - a standard for formatting files of different types, such as
+      text, graphics, or audio, so they can be sent over the Internet
+      and seen or played by a web browser or e-mail application.
     - Programming the World Wide Web - pg 12
+    - Google Definition
 16. ping
+    - query (another computer on a network) to determine whether there
+      is a connection to it.
+    - a computer network administration software utility used to test
+      the reachability of a host on an Internet Protocol (IP) network
+    - Google Defintion
+    - https://en.wikipedia.org/wiki/Ping_(networking_utility)
 17. router
+    - a device that forwards data packets to the appropriate parts of
+      a computer network
+    - perform the traffic directing functions on the Internet
+    - Google Definition
+    - https://en.wikipedia.org/wiki/Router_(computing)
 18. server
     - hosts data and provides it to clients over a network
+    - a computer program or a device that provides functionality for
+      other programs or devices, called "clients"
     - Programming the World Wide Web - pg 2
+    - https://en.wikipedia.org/wiki/Server_(computing)
 19. servlet
     - a Java class
     - executed on the server system
     - produces an HTML document as a repsonse
+    - a small, server-resident program that typically runs
+      automatically in response to user input
+    - Google Definition
     - Programming the World Wide Web - pg 26
 20. SQL
+    - Structured Query Language
+    - a special-purpose domain-specific language used in programming
+      and deisgned for managing data held in a relational database
+      management system (RDBMS), or for stream processing in a
+      relational data stream management system (RDSMS).
+    - a standard language for accessing databases
+    - http://www.w3schools.com/sql/
+    - https://en.wikipedia.org/wiki/SQL
 21. SSH
+    - a cryptographic network protocol for operating network services
+      securely over an unsecured network
+    - a program for logging into a remote machine and for executing
+      commands on a remote machine
+    - https://en.wikipedia.org/wiki/Secure_Shell
+    - http://linuxcommand.org/man_pages/ssh1.html
 22. SSL
+    - the standard security technology for establishing an encrypted
+      link between a web server and browser.
+    - cryptographic protocols that provide communications security
+      over a computer network
+    - http://info.ssl.com/article.aspx?id=10241
+    - https://en.wikipedia.org/wiki/Transport_Layer_Security
 23. TCP/IP
     - Transmission Control Protocol/Internet Protocol
     - used to allow a program on one computer to communicate with a
       program on another computer via the Internet
+    - the conceptual model and set of communications protocols used on
+      the Internet and similar computer networks
+    - https://en.wikipedia.org/wiki/Internet_protocol_suite
     - Programming the World Wide Web - pg 3
 24. telnet (this is also an acronym)
     - a popular protocol that runs on top of TCP/IP
     - allows one user on the Internet to log on to another computer on the Internet
+    - a network protocol that allows a user on one computer to log
+      onto another computer that is part of same network
+    - Google Definition
     - Programming the World Wide Web - pg 5
 25. traceroute
+    - a computer network diagnostic tool for displaying the route
+      (path) and measuring transit delays of packets across an
+      Internet Protocol (IP) network
+    - tracks the path of data between two points
+    - http://www.whatsmyip.org/traceroute/
+    - https://en.wikipedia.org/wiki/Traceroute
 26. unicode
+    - provides a unique number for every character
+    - a computing industry standard for the consistent encoding,
+      representation, and handling of text expressed in most of the
+      world's writing systems
+    - http://unicode.org/standard/WhatIsUnicode.html
+    - https://en.wikipedia.org/wiki/Unicode
 27. URL
     - specify addresses of resources found on the Web
+    - a reference to a web resource that specifies its location on a
+      computer network and a mechanism for retrieving it
     - Programming the World Wide Web - pg 2
+    - https://en.wikipedia.org/wiki/Uniform_Resource_Locator
 28. UTF-8
+    - UTF-8 is a compromise character encoding that can be as compact
+      as ASCII (if the file is just plain English text) but can also
+      contain any unicode characters (with some increase in file
+      size).
+    - a character encoding capable of encoding all possible
+      characters, or code points, defined by Unicode
+    - https://en.wikipedia.org/wiki/UTF-8
+    - http://www.fileformat.info/info/unicode/utf8.htm
 29. W3C
     - World Wide Web Consortium
     - primary purpose was to develop and distribute standards for Web technologies
+    - an international community that develops open standards to
+      ensure the long-term growth of the Web
+    - https://www.w3.org/
     - Programming the World Wide Web - pg 35
 30. xDSL
+    - a family of technologies that are used to transmit digital data
+      over telephone lines
+    - https://en.wikipedia.org/wiki/Digital_subscriber_line
+    - http://www.webopedia.com/TERM/X/xDSL.html
 31. XHTML
     - eXtensible HTML
     - redefinintion of HTML 4.01 using XML
+    - mirrors or extends versions of the widely used Hypertext Markup
+      Language (HTML)
+    - https://en.wikipedia.org/wiki/Digital_subscriber_line
     - Programming the World Wide Web - pg 35
 32. XML
     - eXtensible Markup Language
     - allows users to create their own markup language defining tags
       and attributes for application at hand
+    - designed to store and transport data and be self-descriptive
     - Programming the World Wide Web - pg 23
-
+    - http://www.w3schools.com/xml/xml_whatis.asp
 33. XSL
+    - a language for expressing style sheets
+    - used to refer to a family of languages used to transform and
+      render XML documents
+    - https://www.w3.org/Style/XSL/WhatIsXSL.html
+    - https://en.wikipedia.org/wiki/XSL

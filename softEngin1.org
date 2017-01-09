@@ -17,3 +17,15 @@
 - SRS - Software Requirement Specification
 - SDD - System Design Document
 
+* Business Model
+- Sell things for 3x the manufacturing cost
+- How you start a company is angel investors
+  - Have more than 1,000,000 dollars
+  - Registered with the FCC
+- Then you go to venture capitalists
+  - Worry about making money quickly
+    - Lots of money in 5 years
+- Can we do it?
+  - Do we have the technology?
+- Should we do it?
+  - Will it improve our brand/company
