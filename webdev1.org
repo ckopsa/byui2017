@@ -1,0 +1,178 @@
+#+TITLE: webdev1
+#+DATE: <2017-01-05 Thu>
+#+AUTHOR: Colton Kopsa
+#+EMAIL: Aghbac@Aghbac.local
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+OPTIONS: author:t c:nil creator:comment d:(not "LOGBOOK") date:t
+#+OPTIONS: e:t email:nil f:t inline:t num:t p:nil pri:nil stat:t
+#+OPTIONS: tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 25.1.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+* 01
+** Teach One Another : Web Technology Discussion
+What are some of the most popular IDEs or editors for web development
+today?  
+
+Free & Open Source: Atom 
+
+Atom is a simple, yet extensible text editor built by GitHub for web
+development. It has a built in package manager that allows one to
+quickly add/remove features to improve productivity. It works
+cross-platform, so anyone using a Windows, Mac, or Linux machine can
+use it. It provides auto-completion, file system browsing, and find
+and replace over an entire project.
+
+Proprietary: WebStorm
+
+WebStorm is a lot heavier of an applicaiton, but provides a more
+polished product. It has all the features stated about Atom, but adds
+code inspection with quick-fixes, coding assistance with popular
+frameworks, and debugging features.
+
+Sources:
+https://www.jetbrains.com/webstorm/features/
+https://atom.io
+http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-for-javascript-html-and-css
+** Ponder : Internet & Web Jargon
+1. AJAX
+   - asynchronous JavaScript and XML
+   - used to create asychronous web applications
+   - allows you to change page content without loading a new url
+   - Programming the World Wide Web - pg 5
+   - http://www.w3schools.com/xml/ajax_intro.asp
+2. applet
+   - used to provide interactive features to web applications that
+     cannot be provided by HTML alone
+   - limited control on content outside of the applet's designated
+     area.
+   - written in Java
+   - Examples:
+     - Quicktime
+     - Flash
+   - https://en.wikipedia.org/wiki/Applet#Web-based_Applets
+   - https://netbeans.org/kb/docs/web/applets.html
+3. Bootstrap framework
+   - free and open-source
+   - HTML and CSS based
+   - Only for front-end development
+   - Built to increase consistency of front-end structure
+   - the most popular HTML, CSS, and JS framework for developing
+     responsive, mobile first projects on the web.
+   - https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)
+   - http://getbootstrap.com/#content
+4. CGI (common gateway interface)
+   - Used to create a "gateway" to legacy information systems,
+     existing documents, or an existing database through an HTTP
+     server.
+   - an agreement between implementors about how to design/integrate gateways
+   - offers a standard protocol for web servers to interface with
+     executable programs running on a server that generate web pages
+     dynamically.
+   - https://www.w3.org/CGI/
+   - https://en.wikipedia.org/wiki/Common_Gateway_Interface
+5. client 
+   - recipients of data from a server/servers
+   - request documents from servers and display them to users
+   - a computer program that, as part of its operation, relies on
+     sending a request to another computer program
+   - Programming the World Wide Web - pg 7
+   - Programming the World Wide Web - pg 5
+   - https://en.wikipedia.org/wiki/Client_(computing)
+6. CSS
+   - describes how HTML elements should be displayed
+   - can control multiple HTML pages
+   - a style sheet language used for describing the presentation of a
+     document written in a markup language
+   - https://en.wikipedia.org/wiki/Cascading_Style_Sheets
+   - http://www.w3schools.com/css/css_intro.asp
+7. DHTML
+   - an umbrella term for a collection of technologies used together
+     to create interactive and animated web sites
+   - uses a combination of a static markup language, a client-side
+     scripting language, a presentation definition language, and the
+     Document Object Model.
+   - https://en.wikipedia.org/wiki/Dynamic_HTML
+   - http://w3schools.sinsixx.com/dhtml/dhtml_intro.asp.htm
+8. DNS
+   - a hierarchical decentralized naming system for computers,
+     services, or any resource connected to the Internet or a private
+     network
+   - translates domain names to numerical IP addresses
+   - domain names are converted to IP addresses through name servers
+   - https://en.wikipedia.org/wiki/Domain_Name_System
+   - Programming the World Wide Web - pg 5
+9. ethernet
+   - a system for connecting a number of computer systems to form a
+     local area network
+   - uses protocols to control the passing of information and to avoid
+     simultaneous transmission by two or more systems.
+   - Google Definition
+10. FTP
+    - the commonly used protocol for exchanging files over the Internet
+    - uses the Internet's TCP/IP protocols to enable data transfer
+    - http://www.webopedia.com/TERM/F/ftp.html
+    - Programming the World Wide Web - pg 5
+11. HTML
+    - Hyper Text Markup Language
+    - the standard markup language for creating Web pages
+    - http://www.w3schools.com
+12. HTTP
+    - provides communication interface for connections between browsers and Web servers
+    - Programming the World Wide Web - pg 2
+13. IP address
+    - a unique 32-bit number that represents the address of a computer connected to the internet
+    - Programming the World Wide Web - pg 4
+14. JQuery
+15. MIME
+    - Multipurpose Internet Mail Extension
+    - developed to specify format of different kinds of documents
+    - originally used with internet mail, but was adopted to the Web
+    - Programming the World Wide Web - pg 12
+16. ping
+17. router
+18. server
+    - hosts data and provides it to clients over a network
+    - Programming the World Wide Web - pg 2
+19. servlet
+    - a Java class
+    - executed on the server system
+    - produces an HTML document as a repsonse
+    - Programming the World Wide Web - pg 26
+20. SQL
+21. SSH
+22. SSL
+23. TCP/IP
+    - Transmission Control Protocol/Internet Protocol
+    - used to allow a program on one computer to communicate with a
+      program on another computer via the Internet
+    - Programming the World Wide Web - pg 3
+24. telnet (this is also an acronym)
+    - a popular protocol that runs on top of TCP/IP
+    - allows one user on the Internet to log on to another computer on the Internet
+    - Programming the World Wide Web - pg 5
+25. traceroute
+26. unicode
+27. URL
+    - specify addresses of resources found on the Web
+    - Programming the World Wide Web - pg 2
+28. UTF-8
+29. W3C
+    - World Wide Web Consortium
+    - primary purpose was to develop and distribute standards for Web technologies
+    - Programming the World Wide Web - pg 35
+30. xDSL
+31. XHTML
+    - eXtensible HTML
+    - redefinintion of HTML 4.01 using XML
+    - Programming the World Wide Web - pg 35
+32. XML
+    - eXtensible Markup Language
+    - allows users to create their own markup language defining tags
+      and attributes for application at hand
+    - Programming the World Wide Web - pg 23
+
+33. XSL
