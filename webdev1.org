@@ -28,7 +28,7 @@ and replace over an entire project.
 
 Proprietary: WebStorm
 
-WebStorm is a lot heavier of an applicaiton, but provides a more
+WebStorm is a lot heavier of an application, but provides a more
 polished product. It has all the features stated about Atom, but adds
 code inspection with quick-fixes, coding assistance with popular
 frameworks, and debugging features.
@@ -40,8 +40,8 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
 ** Ponder : Internet & Web Jargon
 1. AJAX
    - asynchronous JavaScript and XML
-   - used to create asychronous web applications
-   - allows you to change page content without loading a new url
+   - used to create asynchronous web applications
+   - allows you to change page content without loading a new URL
    - Programming the World Wide Web - pg 5
    - http://www.w3schools.com/xml/ajax_intro.asp
 2. applet
@@ -157,7 +157,7 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
       is a connection to it.
     - a computer network administration software utility used to test
       the reachability of a host on an Internet Protocol (IP) network
-    - Google Defintion
+    - Google Definition
     - https://en.wikipedia.org/wiki/Ping_(networking_utility)
 17. router
     - a device that forwards data packets to the appropriate parts of
@@ -174,7 +174,7 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
 19. servlet
     - a Java class
     - executed on the server system
-    - produces an HTML document as a repsonse
+    - produces an HTML document as a response
     - a small, server-resident program that typically runs
       automatically in response to user input
     - Google Definition
@@ -182,7 +182,7 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
 20. SQL
     - Structured Query Language
     - a special-purpose domain-specific language used in programming
-      and deisgned for managing data held in a relational database
+      and designed for managing data held in a relational database
       management system (RDBMS), or for stream processing in a
       relational data stream management system (RDSMS).
     - a standard language for accessing databases
@@ -278,3 +278,20 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
       render XML documents
     - https://www.w3.org/Style/XSL/WhatIsXSL.html
     - https://en.wikipedia.org/wiki/XSL
+* 02
+** Teach One Another : Style Guide
+*** Copyright
+    - "There is no such thing, by the way, as a copyright for your website. When
+      you register copyright for online material, you have to identify each
+      individual element of the site that qualifies for copyright protection.
+      For example: text, music, recordings, video, photographs, etc. Registering
+      online material is (for that reason) more complicated than just
+      registering single works." - https://www.astuteo.com/articles/stolen-website-design
+    - This quote stresses that it's the content of a page that is more of a
+      concern for copyright and not necessarily the page layout.
+    - There is a difference in practical programming practices and stealing
+      intellectual property
+    - Reuse of open source code can be used when the code it's being added to
+      follows the same licensing
+    - If unable to determine the license being used, it should be assumed that
+      it is not allowed to be used.

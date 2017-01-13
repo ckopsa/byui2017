@@ -14,4 +14,102 @@
 #+SELECT_TAGS: export
 
 * Week 01 - Introduction to Machine Learning
+* Week 02 - k-Nearest Neighbors
+** 01 PROVE : ASSIGNMENT - EXPERIMENT SHELL & HARDCODED CLASSIFIER
+*** Submission
+    When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
+
+    Name: Colton Kopsa
+
+    1. Please provide the URL of your public GitHub repository.
+
+       https://github.com/coljamkop/k-nearest-neighbors
+
+    For questions 2-6, please type "True" or "False" in front of the question number.
+
+    2. My experiment shell can correctly load the Iris data-set:
+       True
+    3. My experiment shell randomizes the order of the instances (making sure to keep instances lined up with their appropriate targets) it and splits the data into a training set (70%) and a test set (30%)?
+       True
+    4. I have created a HardCoded classifier class with two methods: train and predict. The train method accepts training data (including targets). The predict method returns a prediction or classification for each instance it receives.
+       True 
+    5. The Experiment Shell, processes the data, passes the training data to the classifier's€™s train method, the test data to the predict method, and then compares the predicted values against the correct answers, to produce an overall accuracy (on the test set).
+       True
+    6. I have run the HardCoded classifier on the Iris data-set and obtained a result.
+       True
+    7. What accuracy do you get when running the HardCoded classifier on the
+       Iris data-set and why do you think that is? 
+          - 33%, because the data-set is divided equally into 3 classes and my
+            algorithm to predict is set to only predict one of the 3 classes, so
+            it averages about 33%.
+
+
+
+
+    8. Please select the category you feel best describes your assignment:
+    1 - Some attempt was made
+    2 - Developing, but significantly deficient
+    3 - Slightly deficient, but still mostly adequate
+    *4 - Meets requirements*
+    5 - Shows creativity and excels above and beyond requirements
+
+    1. Provide a brief justification (1-2 sentences) for selecting that
+       category:
+       1.  Although, I have yet to go above and beyond, my code fulfills
+       all the requirements of the assignment
+
+*** Code
+    #+BEGIN_SRC python :tangle classifier.py
+      class Classifier(object):
+          def train(self, inputVector, targetVector):
+              pass
+          def predict(self, inputVector):
+              return [self.classify(x) for x in range(len(inputVector))]
+          def classify(self, instance):
+              return 0
+    #+END_SRC
+
+    #+BEGIN_SRC python :tangle kNearestNeighbor.py :results output
+      from sklearn import datasets
+      from classifier import Classifier
+      from random import randrange
+
+      # http://rosettacode.org/wiki/Knuth_shuffle#Python
+      def knuth_shuffle(x, y):
+          for i in range(len(x)-1, 0, -1):
+              j = randrange(i + 1)
+              x[i], x[j] = x[j], x[i]
+              y[i], y[j] = y[j], y[i]
+
+      def accuracy(output, target):
+          truePositive = 0
+          falsePositive = 0
+          for i in range(len(output)):
+              if output[i] == target[i]:
+                  truePositive = truePositive + 1
+              else:
+                  falsePositive = falsePositive + 1
+          return float(truePositive) / len(output)
+      def run(inputVector, targetVector):
+          # Shuffle input and target
+          knuth_shuffle(inputVector, targetVector)
+
+          # Split the data-set into a training set and a testing set
+          trainInput = inputVector[:100:]
+          trainTarget = targetVector[:100:]
+          testInput = inputVector[100::]
+          testTarget = targetVector[100::]
+
+          classifier = Classifier()
+          classifier.train(trainInput, trainTarget)
+          testOutput = classifier.predict(testInput)
+
+          print accuracy(testOutput, testTarget)
+      iris = datasets.load_iris()
+      run(iris.data, iris.target)
+    #+END_SRC
+
+    #+RESULTS:
+    : 0.22
+
 
