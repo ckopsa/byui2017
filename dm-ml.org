@@ -116,7 +116,7 @@
 * Week 03 - Decision Trees
 ** Prepare : Reading
 *** Why use trees?
-    - Computational costs of trees are low: /O/(log /N/)
+    - Computational costs of trees are low: /O/ ( log /N/ )
 *** Information Theory
     - The mathematical study of quantifying, storing and transmitting information
     - 20 Questions is a good example where, when done correctly, over 500,000 
