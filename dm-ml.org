@@ -113,3 +113,35 @@
     : 0.22
 
 
+* Week 03 - Decision Trees
+** Prepare : Reading
+*** Why use trees?
+    - Computational costs of trees are low: /O/(log /N/)
+*** Information Theory
+    - The mathematical study of quantifying, storing and transmitting information
+    - 20 Questions is a good example where, when done correctly, over 500,000 
+      animals can be represented by 20 bits (or 20 yes or no questions)
+**** Entropy
+     - A key to success in information theory is finding a feature that gives
+       you the most information (has the highest entropy).
+     - In the game of 20 questions, "Is it a cat?" has a lot lower entropy when
+       compared to the question: "Is it a mammal?"
+       - I think this is because the search space is greatly reduced with the
+         higher entropy question/feature.
+     - The key is to find features that split the data set as evenly as possible.
+       - For example, if the feature is true/positive or false/negative in all
+         examples, then the feature doesn't provide any additional information.
+         - If all our examples are animals, then the feature "Has blood"
+           provides no additional information along with the feature "is rock",
+           unless this included a the Pokemon universe, in which case Geodude
+           and his evolutions could be filtered out with that question.
+     - When creating a decision tree, we use a greedy formula that looks for the
+       highest entropy features as its nodes closest to the root.
+     - Entropy can be calculated using the following formula:
+#+BEGIN_EXAMPLE
+  def calc_entropy(p):
+     if p!=0:
+        return -p * np.log2(p)
+     else:
+        return 0
+#+END_EXAMPLE

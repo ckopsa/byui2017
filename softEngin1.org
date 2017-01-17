@@ -1,4 +1,4 @@
-#+TITLE: softEngin1
+#+TITLE: Software Engineering
 #+DATE: <2017-01-05 Thu>
 #+AUTHOR: Colton Kopsa
 #+EMAIL: Aghbac@Aghbac.local
@@ -29,3 +29,29 @@
   - Do we have the technology?
 - Should we do it?
   - Will it improve our brand/company
+* Role
+** Project Manager
+   The project we are working on is Peerfessional Reviews, we plan to accomplish
+   writing a SRS document as well as a SDD. Both teams will use the parallel
+   strategy pattern to accomplish this project. As Project manager I will be
+   guiding the overall software development process in the direction of the
+   requirements to which the stake-holders and my team agree. I will be
+   answering questions that team leaders pose to me. I will meet weekly with the
+   division manager (Br. Grimmett) to resolve questions that my team has that I
+   am unable to answer. I will organize and l|      |          |          |               |
+ead out in meetings that require
+   the entire team, and strive to support in meetings held by team leaders. I
+   will review completed tasks of the teams to ensure that tasks are done
+   correctly and meet the requirements agreed on. I will establish regular
+   contact with team leaders to discuss team needs and help create plans to
+   fulfill those needs. Document control will be decided on a team basis, but
+   teams were leaning towards Independent control, where parts of the document
+   would be set up as tasks and then completed by team members. We will be using
+   Trello as a task management tool and Slack as a group chat for the team as a
+   whole. Trello will be used for Kanban on our team. All tasks will be
+   represented on Trello, and then individual members of a team can assign
+   themselves tasks. When a task is picked up it will move from the open task
+   list to the in progress list. When the task is ready to be reviewed it will
+   move to that list. When the task is finished it will move to the finished
+   list. Doing this will allow teams to understand what is going on, what is
+   finished, and what needs to be done.
