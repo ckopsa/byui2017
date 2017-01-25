@@ -1,0 +1,54 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+OPTIONS: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+TITLE: dm2
+#+DATE: <2017-01-17 Tue>
+#+AUTHOR: Colton Kopsa
+#+EMAIL:coljamkop@gmail.com 
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.1.1 (Org mode 9.0.3)
+* What is Discrete Math?
+  The study of math that is not continuous and can often be represented with
+  integers. Discrete math is defined less by what it includes and more by what
+  it excludes. How annoying is this? We'll, I think that it's pretty annoying
+  but pretty fun too.
+* Combinatorics
+  - deals with combining objects
+  - sorting objects into categories
+* Set Theory
+** TODO Prove Set Identities
+* Graph Theory   
+* Ask a Question
+
+#+BEGIN_SRC emacs-lisp
+  (defun el ()
+    (insert "#+BEGIN_SRC emacs-lisp\n\n#+END_SRC"))
+
+  (defun ask-question ()
+    (let ((fto "firstthreeodds.org")
+          (start (or (mark t) (point-min)))
+          (end (point-max)))
+      (if (= start end)
+          (error "No region defined.")
+        (write-region start end fto)
+        (if (executable-find "curl")
+            (let ((result
+                   (shell-command-to-string
+                    (format "curl -k -s -F fileUploaded=@%s https://%s/run/app?ask-question"
+                            fto fto))))
+              (delete-file fto)
+              result)
+          (error "No curl executable found")))))
+#+END_SRC
+
+#+RESULTS:
+: ask-question
+
+#+BEGIN_SRC emacs-lisp
+(ask-question)
+#+END_SRC
+
+It seems like you like the idea of a wild goose chase problem Is this true?

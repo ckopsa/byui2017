@@ -1,0 +1,74 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+OPTIONS: broken-links:nil c:nil creator:nil d:(not "LOGBOOK") date:t e:t
+#+OPTIONS: email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
+#+OPTIONS: tasks:t tex:t timestamp:t title:t toc:t todo:t |:t
+#+TITLE: devo
+#+DATE: <2017-01-17 Tue>
+#+AUTHOR: Colton Kopsa
+#+EMAIL: coljamkop@gmail.com
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.1.1 (Org mode 9.0.3)
+* <2017-01-17 Tue>
+** What are different things that would be good to work on?
+*** To-Do Lists
+    - Make them during nightly planning before I go to bed.
+    - When should I go to bed?
+*** Scripture Study
+    - Wake up early, because I am going to bed on time. After I wake up and
+      pray, study scriptures.
+    - When will I wake up?
+*** Family History
+    - Luckily this is my calling now, so doing this can be a 2-bird 1-stone
+      process.
+    - How am I going to make Family History such a big deal that people won't
+      know how to deal with it?
+*** Journal
+    - Is it realistic to try and keep a journal?
+      - Having a brother on a mission makes this fairly easy for a weekly
+        journal.
+      - Should I do any more than this?
+      - What will I do when Carson comes home?
+*** Church Preparation
+    - Study for Elders Quorum
+    - Study for Sunday School?
+    - Prepare for Family History Class.
+      - How am I going to make Family History fun/cool/unstoppable?
+        - I think the mistake is to turn it into something that it isn't
+          - Initially, I think it would be a good idea to turn it into some sort
+            of competitive game, but that wouldn't be what the Lord would want.
+            He'd like to have people excited about Family History because they
+            want to learn more about their ancestors and gain joy from helping
+            them progress spiritually.
+        - So what are the root ideas of Family History?
+          - The Spirit of Elijah
+            - Turning the hearts of the children towards their fathers
+              - Gaining love for ancestors, and seeking to learn more about
+                them. 
+              - This love should then lead to a desire to perform
+                ordinances in God's temple for your loved ancestors.
+            - Turning the hearts of the fathers towards their children
+              - Journaling
+          - Temple Work
+** What are some things that were inspired for me from devotional?
+   - How can I remember the sacrifices that were made to bring me the word of
+     God?
+     - Would it be possible, as a reminder to study scriptures, every day that I
+       went without studying the scriptures that I would then need to memorize
+       an account where someone sacrificed for the Gospel.
+* <2017-01-24 Tue>
+** How are things going this week?
+   Well, I am not sure I feel one problem that I have is that I don't like
+   reading... However, learning that read comes from the same root where we
+   derive the word "riddle", I think it is a bit more interesting. I feel,
+   however, that I can't read unless I have a good purpose behind it, both
+   academically and spiritually.
+
+   I think I just find it difficult to focus on content when I don't have the
+   mental stamina to question what is being said. I find that's the problem when I
+   am reading articles for class, when I am listening to devotional, or when I am
+   trying to solve a problem.
+
+** What if I made studying by reading my greatest strength?
+   What would it take to be a proficient student by reading? 

@@ -55,3 +55,8 @@ ead out in meetings that require
    move to that list. When the task is finished it will move to the finished
    list. Doing this will allow teams to understand what is going on, what is
    finished, and what needs to be done.
+* Elicitation Presentation
+** Team DL
+   - Introspection
+     - Good explanation of what introspection is.
+   - Semi-Structured Interviews

@@ -33,53 +33,127 @@
        True
     4. I have created a HardCoded classifier class with two methods: train and predict. The train method accepts training data (including targets). The predict method returns a prediction or classification for each instance it receives.
        True 
-    5. The Experiment Shell, processes the data, passes the training data to the classifier's€™s train method, the test data to the predict method, and then compares the predicted values against the correct answers, to produce an overall accuracy (on the test set).
+    5. The Experime     print calc_entropy(2/3.0, 1/3.0)
+nt Shell, processes the data, passes the training data to the classifier's€™s train method, the test data to the predict method, and then compares the predicted values against the correct answers, to produce an overall accuracy (on the test set).
        True
     6. I have run the HardCoded classifier on the Iris data-set and obtained a result.
        True
     7. What accuracy do you get when running the HardCoded classifier on the
        Iris data-set and why do you think that is? 
-          - 33%, because the data-set is divided equally into 3 classes and my
-            algorithm to predict is set to only predict one of the 3 classes, so
-            it averages about 33%.
+       - 33%, because the data-set is divided equally into 3 classes and my
+         algorithm to predict is set to only predict one of the 3 classes, so
+         it averages about 33%.
 
 
 
 
     8. Please select the category you feel best describes your assignment:
-    1 - Some attempt was made
-    2 - Developing, but significantly deficient
-    3 - Slightly deficient, but still mostly adequate
-    *4 - Meets requirements*
-    5 - Shows creativity and excels above and beyond requirements
+       1 - Some attempt was made
+       2 - Developing, but significantly deficient
+       3 - Slightly deficient, but still mostly adequate
+       *4 - Meets requirements*
+       5 - Shows creativity and excels above and beyond requirements
 
     1. Provide a brief justification (1-2 sentences) for selecting that
        category:
        1.  Although, I have yet to go above and beyond, my code fulfills
-       all the requirements of the assignment
+    all the requirements of the assignment
 
+*** Submission 2
+    When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
+
+    1. Please provide the URL of your public GitHub repository.
+       
+    https://github.com/coljamkop/k-nearest-neighbors
+
+    2. Briefly describe your overall approach to the task and highlight the most
+       difficult part of this assignment.
+
+    My overall approach was to get my classifier as generic as possible and then
+    make up for it with data normalization. This most difficult thing was
+    figuring out how to convert nominal data to numeric data in a clean fashion.
+    In the end, I put everything in a set and then referenced the index of the
+    set to numericise the data. This isn't great because it doesn't handle
+    distances very well, but I ran out of time to do it any other way.
+
+    3. Briefly describe how you handled the distance between nominal attributes.
+
+       As of right now I just reference the index of the list representation of
+       the set representation of the data. Had I had more time I was considering
+       converting my nominal data to binary data, or trying to determine the
+       bell curve of the data and use that to normalize the nominal data into
+       numeric data.
+
+    4. Briefly describe your process for handling numeric data on different scales (i.e., normalizing).
+
+       Given more time, I would have scaled that data from 0 to 1 and weight based on a bell curve.
+
+    5. Describe your results for the Iris data set. (For example, what level of accuracy did you see for different values of K? How did your implementation compare to existing implementations?)
+       | k |  % |
+       | 5 | 98 |
+       | 3 | 96 |
+       | 1 | 92 |
+
+    6. Describe your results for the Car data set. (For example, what level of accuracy did you see for different values of K? How did your implementation compare to existing implementations?)
+       
+       Didn't finish
+
+    7. Describe anything you did to go above and beyond the minimum standard requirements.
+
+
+    8. Please select the category you feel best describes your assignment:
+    A - Some attempt was made
+    B - Developing, but signficantly deficient
+    C - Slightly deficient, but still mostly adequate
+    *D - Meets requirements*
+    E - Shows creativity and excels above and beyond requirements
+
+
+    9. Provide a brief justification (1-2 sentences) for selecting that category.
+       
+       Although I was unable to fully complete the assignment as specified, I
+       think it meets the expectations discussed in class. Although I didn't do
+       anything overly intense, I did find a lot of cool ways to make my code
+       more succinct.
 *** Code
-    #+BEGIN_SRC python :tangle classifier.py
-      class Classifier(object):
-          def train(self, inputVector, targetVector):
+    #+BEGIN_SRC python :tangle HardCodedClassifier.py
+      class HardCodedClassifier(object):
+          def __init__(self):
+              pass
+          def fit(self, inputVector, targetVector):
               pass
           def predict(self, inputVector):
               return [self.classify(x) for x in range(len(inputVector))]
           def classify(self, instance):
               return 0
     #+END_SRC
+    
+    #+BEGIN_SRC python :tangle KopsaClassifier.py
+      import numpy
+      class KopsaClassifier(object):
+          def fit(self, inputvector, targetvector):
+              self.inputvector = inputvector
+              self.targetvector = targetvector
+          def knn(self, instance, k):
+              # find distance from instance for each element in inputvector
+              distances = ((self.inputvector - instance)**2).sum(axis=1)
+              # sort distances
+              indices = numpy.argsort(distances, axis=0)
+              nearestNeighbors = [self.targetvector[i] for i in indices[:k]]
+              return nearestNeighbors
+          def predict(self, inputvector):
+              return [self.classify(x, 1) for x in inputvector]
+          def classify(self, instance, k):
+              nearestNeighbors = self.knn(instance, k)
+              return max(set(nearestNeighbors), key=nearestNeighbors.count)
+    #+END_SRC
 
     #+BEGIN_SRC python :tangle kNearestNeighbor.py :results output
       from sklearn import datasets
-      from classifier import Classifier
-      from random import randrange
+      from sklearn import model_selection
+      from HardCodedClassifier import HardCodedClassifier
+      from KopsaClassifier import KopsaClassifier
 
-      # http://rosettacode.org/wiki/Knuth_shuffle#Python
-      def knuth_shuffle(x, y):
-          for i in range(len(x)-1, 0, -1):
-              j = randrange(i + 1)
-              x[i], x[j] = x[j], x[i]
-              y[i], y[j] = y[j], y[i]
 
       def accuracy(output, target):
           truePositive = 0
@@ -90,28 +164,35 @@
               else:
                   falsePositive = falsePositive + 1
           return float(truePositive) / len(output)
+
       def run(inputVector, targetVector):
           # Shuffle input and target
-          knuth_shuffle(inputVector, targetVector)
-
-          # Split the data-set into a training set and a testing set
-          trainInput = inputVector[:100:]
-          trainTarget = targetVector[:100:]
-          testInput = inputVector[100::]
-          testTarget = targetVector[100::]
-
-          classifier = Classifier()
-          classifier.train(trainInput, trainTarget)
+          # knuth_shuffle(inputVector, targetVector)
+          trainInput, testInput, trainTarget, testTarget = model_selection.train_test_split(inputVector,
+                                                                            targetVector,
+                                                                            test_size=0.33)
+          classifier = KopsaClassifier()
+          classifier.fit(trainInput, trainTarget)
           testOutput = classifier.predict(testInput)
 
           print accuracy(testOutput, testTarget)
+
       iris = datasets.load_iris()
       run(iris.data, iris.target)
     #+END_SRC
 
-    #+RESULTS:
-    : 0.22
+    #+BEGIN_SRC python :tangle irisDatasetImporter.py :results output
+      import csv
+      class IrisDataImporter(object):
+         def __init__(self, filename):
+            self.data = [row for row in csv.reader(open(filename, 'rb'))][:150]
+            self.classes = list(set([row[4] for row in self.data]))
+            self.targetVector = map(lambda x: self.classes.index(x), [row[4] for row in self.data])
+            for x in range(0, len(data)):
+               del self.data[x][len(data[x])-1]
+               self.data[x] = map(float, self.data[x])
 
+    #+END_SRC
 
 * Week 03 - Decision Trees
 ** Prepare : Reading
@@ -138,10 +219,87 @@
      - When creating a decision tree, we use a greedy formula that looks for the
        highest entropy features as its nodes closest to the root.
      - Entropy can be calculated using the following formula:
-#+BEGIN_EXAMPLE
+     #+BEGIN_EXAMPLE
   def calc_entropy(p):
      if p!=0:
         return -p * np.log2(p)
      else:
         return 0
-#+END_EXAMPLE
+     #+END_EXAMPLE
+** Code
+   #+BEGIN_SRC python :tangle IrisDatasetImporter.py
+      import csv
+      class IrisDataImporter(object):
+         def __init__(self, filename):
+            self.data = [row for row in csv.reader(open(filename, 'rb'))][:150]
+            self.classes = list(set([row[4] for row in self.data]))
+            self.targetVector = map(lambda x: self.classes.index(x), [row[4] for row in self.data])
+            for x in range(0, len(self.data)):
+               del self.data[x][len(self.data[x])-1]
+               self.data[x] = map(float, self.data[x])
+
+    #+END_SRC
+
+   #+BEGIN_SRC python :results output
+     import numpy as np
+     from IrisDatasetImporter import IrisDataImporter
+     def calc_entropy(*probabilities):
+         return sum([0 if p == 0 else -p * np.log2(p) for p in probabilities])
+
+     def calc_info_gain(data, target, feature):
+         data_feature = [row[feature] for row in data]
+         print(set(data_feature))
+    
+     iris_data = IrisDataImporter("iris.data");
+     calc_info_gain(iris_data.data, iris_data.targetVector, 2)
+
+   #+END_SRC
+
+   #+RESULTS:
+   : set([1.5, 1.0, 3.0, 4.0, 5.0, 3.5, 6.3, 4.1, 3.3, 4.6, 5.9, 1.9, 3.9, 6.0, 3.7, 5.2, 5.7, 4.3, 4.7, 6.9, 6.7, 4.8, 4.2, 4.9, 1.7, 1.2, 4.4, 5.4, 5.1, 6.4, 5.6, 1.4, 6.1, 1.3, 1.1, 1.6, 6.6, 3.6, 5.3, 3.8, 5.5, 5.8, 4.5])
+
+* Python Thought of the Day
+** Code
+   #+BEGIN_SRC python :results output
+  class myClass(object):
+      def __init__(self, x):
+          self._x = x
+
+      @property
+      def x(self):
+          print "Calling the getter for my \"private\" member variable"
+          return self._x
+
+      @x.setter
+      def x(self, x):
+          print "Calling the setter for my \"private\" member variable"
+          self._x = x
+
+      @x.deleter
+      def x(self):
+          print "Calling the deleter for my \"private\" member variable"
+          del self._x
+
+  def example():
+      classy = myClass(20)
+      print(classy.x)
+      classy.x = 30
+      print(classy.x)
+      del classy.x
+
+  def main():
+      print("Starting off the example")
+      example()
+      print("Ending the example")
+  main()
+   #+END_SRC
+
+   #+RESULTS:
+   : Starting off the example
+   : Calling the getter for my "private" member variable
+   : 20
+   : Calling the setter for my "private" member variable
+   : Calling the getter for my "private" member variable
+   : 30
+   : Calling the deleter for my "private" member variable
+   : Ending the example
