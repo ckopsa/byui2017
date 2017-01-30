@@ -60,3 +60,17 @@ ead out in meetings that require
    - Introspection
      - Good explanation of what introspection is.
    - Semi-Structured Interviews
+* Questions
+** Document Conventions?
+*** Will do.
+** State who's part of the team?
+*** Will do.
+** If a section is not applicable, Br. Grimmett states he would remove it.
+** How long will it take to get our reviewed SRS back?
+*** Don't wait for me.
+* Tips from Br. Grimmett
+** Most important section is "Who is our customer?"
+   - People may use your product that aren't necessarily customers.
+** Who's going to buy your product?
+** TODO Find out the rogue teammates
+** TODO SRS due following Tuesday after STEM Fair

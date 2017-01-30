@@ -33,7 +33,8 @@
        True
     4. I have created a HardCoded classifier class with two methods: train and predict. The train method accepts training data (including targets). The predict method returns a prediction or classification for each instance it receives.
        True 
-    5. The Experime     print calc_entropy(2/3.0, 1/3.0)
+    5. The Experime  
+   print calc_entropy(2/3.0, 1/3.0)
 nt Shell, processes the data, passes the training data to the classifier's€™s train method, the test data to the predict method, and then compares the predicted values against the correct answers, to produce an overall accuracy (on the test set).
        True
     6. I have run the HardCoded classifier on the Iris data-set and obtained a result.
@@ -228,35 +229,60 @@ nt Shell, processes the data, passes the training data to the classifier's€™
      #+END_EXAMPLE
 ** Code
    #+BEGIN_SRC python :tangle IrisDatasetImporter.py
-      import csv
-      class IrisDataImporter(object):
-         def __init__(self, filename):
-            self.data = [row for row in csv.reader(open(filename, 'rb'))][:150]
-            self.classes = list(set([row[4] for row in self.data]))
-            self.targetVector = map(lambda x: self.classes.index(x), [row[4] for row in self.data])
-            for x in range(0, len(self.data)):
-               del self.data[x][len(self.data[x])-1]
-               self.data[x] = map(float, self.data[x])
+     import csv
+     import copy
+     class IrisDataImporter(object):
+        def __init__(self, filename):
+           self.data = [row for row in csv.reader(open(filename, 'rb'))][:150]
+           self.classes = list(set([row[4] for row in self.data]))
+           self.inputVector = copy.deepcopy(self.data)
+           self.targetVector = map(lambda x: self.classes.index(x), [row[4] for row in self.data])
+           for x in range(0, len(self.inputVector)):
+              del self.inputVector[x][len(self.inputVector[x])-1]
+              self.inputVector[x] = map(float, self.inputVector[x])
 
     #+END_SRC
-
+1. sepal length in cm 
+2. sepal width in cm 
+3. petal length in cm 
+4. petal width in cm 
+5. class: 
    #+BEGIN_SRC python :results output
+     import pandas as pd
      import numpy as np
      from IrisDatasetImporter import IrisDataImporter
+
      def calc_entropy(*probabilities):
          return sum([0 if p == 0 else -p * np.log2(p) for p in probabilities])
-
      def calc_info_gain(data, target, feature):
-         data_feature = [row[feature] for row in data]
-         print(set(data_feature))
-    
-     iris_data = IrisDataImporter("iris.data");
-     calc_info_gain(iris_data.data, iris_data.targetVector, 2)
+        pass
+     def nominalize_dataframe(dataframe, numBins, labels):
+         tempdataframe = dataframe.copy(True)
+         for column in list(tempdataframe)[:-1]:
+             tempdataframe[column] = nominalize_column(df[column], numBins, labels)
+         return tempdataframe
+     def nominalize_column(column, numBins, labels):
+         if not isinstance(column[0], str):
+             return pd.cut(column, create_bins(column, numBins), labels=labels)
+     def create_bins(column, numBins):
+         columnMin = float(min(column))
+         columnMin = columnMin - columnMin/10
+         columnMax = float(max(column))
+         return np.linspace(columnMin, columnMax, numBins)
 
+     df = pd.read_csv("iris.data", header = None, names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
+     names = ["small", "medium", "large", "very-large"]
+     nomdf = nominalize_dataframe(df, 5, names)
+     for column in nomdf:
+         print map(lambda(x): x / len(nomdf[column]), list(nomdf[column].value_counts()))
    #+END_SRC
 
-   #+RESULTS:
-   : set([1.5, 1.0, 3.0, 4.0, 5.0, 3.5, 6.3, 4.1, 3.3, 4.6, 5.9, 1.9, 3.9, 6.0, 3.7, 5.2, 5.7, 4.3, 4.7, 6.9, 6.7, 4.8, 4.2, 4.9, 1.7, 1.2, 4.4, 5.4, 5.1, 6.4, 5.6, 1.4, 6.1, 1.3, 1.1, 1.6, 6.6, 3.6, 5.3, 3.8, 5.5, 5.8, 4.5])
+     #+RESULTS:
+     : [0, 0, 0, 0]
+     : [0, 0, 0, 0]
+     : [0, 0, 0, 0]
+     : [0, 0, 0, 0]
+     : [0, 0, 0]
 
 * Python Thought of the Day
 ** Code
