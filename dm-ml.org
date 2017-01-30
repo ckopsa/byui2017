@@ -227,7 +227,7 @@ nt Shell, processes the data, passes the training data to the classifier's€™
      else:
         return 0
      #+END_EXAMPLE
-** Code
+** COMMENT Code
    #+BEGIN_SRC python :tangle IrisDatasetImporter.py
      import csv
      import copy
@@ -271,18 +271,60 @@ nt Shell, processes the data, passes the training data to the classifier's€™
          return np.linspace(columnMin, columnMax, numBins)
 
      df = pd.read_csv("iris.data", header = None, names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
-     names = ["small", "medium", "large", "very-large"]
-     nomdf = nominalize_dataframe(df, 5, names)
-     for column in nomdf:
-         print map(lambda(x): x / len(nomdf[column]), list(nomdf[column].value_counts()))
+     names = ["very_small", "small", "medium", "large", "very-large"]
+     nomdf = nominalize_dataframe(df, 6, names)
+     # Get Columns Ratios
+     for column in list(nomdf)[:-1]:
+         for feature in set(nomdf[column]):
+             print column, feature
+             counts = nomdf[nomdf[column] == feature]["class"].value_counts()
+             print calc_entropy(*list(counts / sum(counts))) * nomdf[nomdf[column] == feature][column].count() / float(nomdf[column].count())
+         map(lambda(x): x / float(len(nomdf[column])), list(nomdf[column].value_counts()))
    #+END_SRC
 
-     #+RESULTS:
-     : [0, 0, 0, 0]
-     : [0, 0, 0, 0]
-     : [0, 0, 0, 0]
-     : [0, 0, 0, 0]
-     : [0, 0, 0]
+         #+RESULTS:
+         #+begin_example
+         sepal_length small
+         0.211348729306
+         sepal_length large
+         0.244875419216
+         sepal_length very_small
+         0.0
+         sepal_length medium
+         0.39486511785
+         sepal_length very-large
+         0.0
+         sepal_width large
+         0.170386515843
+         sepal_width very-large
+         0.0
+         sepal_width very_small
+         0.0566014999712
+         sepal_width medium
+         0.702656164824
+         sepal_width small
+         0.258889137542
+         petal_length large
+         0.275318007875
+         petal_length small
+         0.0
+         petal_length very_small
+         0.0
+         petal_length medium
+         0.0433915377579
+         petal_length very-large
+         0.0
+         petal_width small
+         0.0289901036373
+         petal_width large
+         0.12821805578
+         petal_width very_small
+         0.0
+         petal_width medium
+         0.103223327842
+         petal_width very-large
+         0.0
+#+end_example
 
 * Python Thought of the Day
 ** Code
