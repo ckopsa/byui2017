@@ -34,9 +34,9 @@
     4. I have created a HardCoded classifier class with two methods: train and predict. The train method accepts training data (including targets). The predict method returns a prediction or classification for each instance it receives.
        True 
     5. The Experime  
-   print calc_entropy(2/3.0, 1/3.0)
-nt Shell, processes the data, passes the training data to the classifier's€™s train method, the test data to the predict method, and then compares the predicted values against the correct answers, to produce an overall accuracy (on the test set).
-       True
+    print calc_entropy(2/3.0, 1/3.0)
+    nt Shell, processes the data, passes the training data to the classifier's€™s train method, the test data to the predict method, and then compares the predicted values against the correct answers, to produce an overall accuracy (on the test set).
+    True
     6. I have run the HardCoded classifier on the Iris data-set and obtained a result.
        True
     7. What accuracy do you get when running the HardCoded classifier on the
@@ -227,40 +227,31 @@ nt Shell, processes the data, passes the training data to the classifier's€™
      else:
         return 0
      #+END_EXAMPLE
-** COMMENT Code
-   #+BEGIN_SRC python :tangle IrisDatasetImporter.py
-     import csv
-     import copy
-     class IrisDataImporter(object):
-        def __init__(self, filename):
-           self.data = [row for row in csv.reader(open(filename, 'rb'))][:150]
-           self.classes = list(set([row[4] for row in self.data]))
-           self.inputVector = copy.deepcopy(self.data)
-           self.targetVector = map(lambda x: self.classes.index(x), [row[4] for row in self.data])
-           for x in range(0, len(self.inputVector)):
-              del self.inputVector[x][len(self.inputVector[x])-1]
-              self.inputVector[x] = map(float, self.inputVector[x])
+** TODO Code
+*** Building the tree:
+    It would be cool to build the tree recursively, but have it return the
+    entire built tree. If it were to take in all the things it needed, and then
+    create the necessary children from it.
+
+    #+BEGIN_SRC python :tangle Branch.py
+      class Branch(Object):
+          self.children = []
+    
 
     #+END_SRC
-1. sepal length in cm 
-2. sepal width in cm 
-3. petal length in cm 
-4. petal width in cm 
-5. class: 
-   #+BEGIN_SRC python :results output
+
+    #+BEGIN_SRC python :results output
      import pandas as pd
      import numpy as np
-     from IrisDatasetImporter import IrisDataImporter
-
      def calc_entropy(*probabilities):
          return sum([0 if p == 0 else -p * np.log2(p) for p in probabilities])
      def calc_info_gain(data, target, feature):
-        pass
+         pass
      def nominalize_dataframe(dataframe, numBins, labels):
          tempdataframe = dataframe.copy(True)
          for column in list(tempdataframe)[:-1]:
              tempdataframe[column] = nominalize_column(df[column], numBins, labels)
-         return tempdataframe
+             return tempdataframe
      def nominalize_column(column, numBins, labels):
          if not isinstance(column[0], str):
              return pd.cut(column, create_bins(column, numBins), labels=labels)
@@ -278,54 +269,226 @@ nt Shell, processes the data, passes the training data to the classifier's€™
          for feature in set(nomdf[column]):
              print column, feature
              counts = nomdf[nomdf[column] == feature]["class"].value_counts()
-             print calc_entropy(*list(counts / sum(counts))) * nomdf[nomdf[column] == feature][column].count() / float(nomdf[column].count())
-         map(lambda(x): x / float(len(nomdf[column])), list(nomdf[column].value_counts()))
-   #+END_SRC
+             print calc_entropy(*list(counts / sum(counts))) * list(nomdf[column]).count(feature) / float(nomdf[column].count())
+             #nomdf[nomdf[column] == feature][column].count() / float(nomdf[column].count())
+    #+END_SRC
 
-         #+RESULTS:
-         #+begin_example
-         sepal_length small
-         0.211348729306
-         sepal_length large
-         0.244875419216
-         sepal_length very_small
-         0.0
-         sepal_length medium
-         0.39486511785
-         sepal_length very-large
-         0.0
-         sepal_width large
-         0.170386515843
-         sepal_width very-large
-         0.0
-         sepal_width very_small
-         0.0566014999712
-         sepal_width medium
-         0.702656164824
-         sepal_width small
-         0.258889137542
-         petal_length large
-         0.275318007875
-         petal_length small
-         0.0
-         petal_length very_small
-         0.0
-         petal_length medium
-         0.0433915377579
-         petal_length very-large
-         0.0
-         petal_width small
-         0.0289901036373
-         petal_width large
-         0.12821805578
-         petal_width very_small
-         0.0
-         petal_width medium
-         0.103223327842
-         petal_width very-large
-         0.0
+    #+RESULTS:
+    #+begin_example
+    sepal_length small
+    0.211348729306
+    sepal_length large
+    0.244875419216
+    sepal_length very_small
+    0.0
+    sepal_length medium
+    0.39486511785
+    sepal_length very-large
+    0.0
+    sepal_width 3.5
+    0.0
+    sepal_width 3.1
+    0.124366813547
+    sepal_width 2.0
+    0.0
+    sepal_width 3.0
+    0.264547384391
+    sepal_width 3.9
+    0.0
+    sepal_width 2.5
+    0.0533333333333
+    sepal_width 4.1
+    0.0
+    sepal_width 2.3
+    0.0216340833189
+    sepal_width 3.8
+    0.0367318333622
+    sepal_width 2.4
+    0.0
+    sepal_width 2.2
+    0.0183659166811
+    sepal_width 2.8
+    0.0919546260299
+    sepal_width 4.2
+    0.0
+    sepal_width 4.4
+    0.0
+    sepal_width 3.4
+    0.0832681666378
+    sepal_width 2.9
+    0.0771186432965
+    sepal_width 2.7
+    0.0594645635903
+    sepal_width 3.2
+    0.134210319232
+    sepal_width 3.7
+    0.0
+    sepal_width 3.6
+    0.0183659166811
+    sepal_width 2.6
+    0.0323650198152
+    sepal_width 3.3
+    0.0583659166811
+    sepal_width 4.0
+    0.0
+    petal_length 1.5
+    0.0
+    petal_length 1.0
+    0.0
+    petal_length 3.0
+    0.0
+    petal_length 4.0
+    0.0
+    petal_length 5.0
+    0.0216340833189
+    petal_length 3.5
+    0.0
+    petal_length 6.3
+    0.0
+    petal_length 4.1
+    0.0
+    petal_length 3.3
+    0.0
+    petal_length 4.6
+    0.0
+    petal_length 5.9
+    0.0
+    petal_length 1.9
+    0.0
+    petal_length 3.9
+    0.0
+    petal_length 6.0
+    0.0
+    petal_length 3.7
+    0.0
+    petal_length 5.2
+    0.0
+    petal_length 5.7
+    0.0
+    petal_length 4.3
+    0.0
+    petal_length 4.7
+    0.0
+    petal_length 6.9
+    0.0
+    petal_length 6.7
+    0.0
+    petal_length 4.8
+    0.0266666666667
+    petal_length 4.2
+    0.0
+    petal_length 4.9
+    0.0323650198152
+    petal_length 1.7
+    0.0
+    petal_length 1.2
+    0.0
+    petal_length 4.4
+    0.0
+    petal_length 5.4
+    0.0
+    petal_length 5.1
+    0.0289901036373
+    petal_length 6.4
+    0.0
+    petal_length 5.6
+    0.0
+    petal_length 1.4
+    0.0
+    petal_length 6.1
+    0.0
+    petal_length 1.3
+    0.0
+    petal_length 1.1
+    0.0
+    petal_length 1.6
+    0.0
+    petal_length 6.6
+    0.0
+    petal_length 3.6
+    0.0
+    petal_length 5.3
+    0.0
+    petal_length 3.8
+    0.0
+    petal_length 5.5
+    0.0
+    petal_length 5.8
+    0.0
+    petal_length 4.5
+    0.0289901036373
+    petal_width 0.5
+    0.0
+    petal_width 1.5
+    0.0520017937319
+    petal_width 2.0
+    0.0
+    petal_width 0.6
+    0.0
+    petal_width 2.5
+    0.0
+    petal_width 1.0
+    0.0
+    petal_width 1.1
+    0.0
+    petal_width 1.4
+    0.0289901036373
+    petal_width 1.9
+    0.0
+    petal_width 2.3
+    0.0
+    petal_width 2.4
+    0.0
+    petal_width 0.2
+    0.0
+    petal_width 1.8
+    0.0331053480243
+    petal_width 0.3
+    0.0
+    petal_width 1.2
+    0.0
+    petal_width 1.6
+    0.0216340833189
+    petal_width 1.3
+    0.0
+    petal_width 0.1
+    0.0
+    petal_width 0.4
+    0.0
+    petal_width 2.1
+    0.0
+    petal_width 1.7
+    0.0133333333333
+    petal_width 2.2
+    0.0
 #+end_example
 
+* Week 04 - Neural Networks
+** How do animals think?
+   The brain is filled with neurons that fire when certain conditions are met.
+** What's Hebb's Rule?
+   If multiple neurons fire simultaneously the synaptic connection between them
+   grows stronger.
+** What's McCulloch and Pitts Neurons?
+   Weighted inputs are put into an adder and then if the sum exceeds a threshold
+   the neuron fires.
+*** Is this realistic?
+    - Not really, this is oversimplified. 
+    - The main difference is that real neurons fire a spike train that encodes
+      information, and not just an binary signal.
+    - M&C can have negative weights, which has not been seen in real neurons.
+*** So... neural networks. How do they classify things? How do they learn?
+    - One word: pattern recognition.
+      - Assuming that there is some pattern in the data, then by showing the
+        neural network a few examples, we hope that it will find the pattern and
+        predict the other examples correctly.
+    - The learning of the neural network doesn't happen in the neurons
+      themselves, rather it takes place between the neurons.
+    - The only values we are allowed to change are the weights and threshold for
+      firing.
+** What is the Perceptron?
+   - A simple neural network based off of M&P neurons.
+   - /η/ defines the learning rate of the neural network.
 * Python Thought of the Day
 ** Code
    #+BEGIN_SRC python :results output
