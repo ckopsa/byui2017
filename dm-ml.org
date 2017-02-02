@@ -233,235 +233,108 @@
     entire built tree. If it were to take in all the things it needed, and then
     create the necessary children from it.
 
-    #+BEGIN_SRC python :tangle Branch.py
-      class Branch(Object):
-          self.children = []
-    
+    #+BEGIN_SRC python :results output :tangle ID3_Tree.py
+      import pandas as pd
+      import numpy as np
+      def calc_entropy(*probabilities):
+          return sum([0 if p == 0 else -p * np.log2(p) for p in probabilities])
+      def nominalize_dataframe(df, numBins, labels):
+          tempdataframe = df.copy(True)
+          for column in list(tempdataframe)[:-1]:
+              tempdataframe[column] = nominalize_column(df[column], numBins, labels)
+          return tempdataframe
+      def nominalize_column(column, numBins, labels):
+          if not isinstance(column, str):
+              return pd.cut(column, create_bins(column, numBins), labels=labels)
+      def create_bins(column, numBins):
+          columnMin = float(min(column))
+          columnMin = columnMin - columnMin/10
+          columnMax = float(max(column))
+          return np.linspace(columnMin, columnMax, numBins)
+      def getColumnEntropy(df, column_name):
+          column_entropy_sum = 0
+          for feature in set(df[column_name]):
+              column_entropy_sum += getFeatureEntropy(df, column_name, feature)
+          return column_entropy_sum
+      def getFeatureEntropy(df, column_name, feature):
+          counts = df[df[column_name] == feature].ix[:, -1].value_counts()
+          entropy = calc_entropy(*list(counts / sum(counts)))
+          ratio = list(df[column_name]).count(feature) / float(df[column_name].count())
+          return entropy * ratio
+      def getBestColumn(df):
+          return list(df)[np.argmin(map(lambda(x): getColumnEntropy(df, x), list(df)[:-1]))]
+      def buildTree(df):
+          best_column = getBestColumn(df)
+          d_tree = dict()
+          for feature in set(df[best_column]):
+              if len(list(df)) == 2 or 0.0 == getFeatureEntropy(df, best_column, feature):
+                  d_tree[best_column, feature] = list(df[df[best_column] == feature].ix[:, -1])[0]
+              else:
+                  d_tree[best_column, feature] = buildTree(df[df[best_column] == feature].drop([best_column], axis=1))
+          return d_tree
+      def classifyDataFrame(df, d_tree):
+          return [classifyRow(row, d_tree) for index, row in df.iterrows()]
+      def classifyRow(row, d_tree):
+          current_column = d_tree.keys()[0][0]
+          classification = d_tree.get((current_column, row[current_column]), d_tree[d_tree.keys()[0][0], d_tree.keys()[0][1]])
+          if not isinstance(classification, dict):
+              return classification
+          else:
+              return classifyRow(row, classification)
+      def accuracy(output, target):
+          truePositive = 0
+          falsePositive = 0
+          for i in range(len(output)):
+              if output[i] == target[i]:
+                  truePositive = truePositive + 1
+              else:
+                  falsePositive = falsePositive + 1
+          return float(truePositive) / len(output)
 
+      def displayDTree(tree):
+          for key in tree.keys():
+              if isinstance(tree[key], dict):
+                  print "IF", key[0], "==", key[1], "AND"
+                  displayDTree(tree[key])
+              else:
+                  print key[0], "==", key[1]
+                  print "  ", tree[key]
+
+      df0 = pd.read_csv("iris.data", header = None, names = ["sepal_length",
+                                                            "sepal_width",
+                                                            "petal_length",
+                                                            "petal_width", "class"])
+      names = ["very_very_small", "very_small", "small", "medium", "large", "very-large"]
+      nomdf0 = nominalize_dataframe(df0, len(names)+1, names)
+      # Get Columns Ratios
+      d_tree0 = buildTree(nomdf0.sample(frac=.5))
+      test_data0 = nomdf0.sample(frac=.2)
+      output0 = classifyDataFrame(test_data0, d_tree0)
+      target0 = list(test_data0["class"])
+      print accuracy(output0, target0)
+
+      df1 = pd.read_csv("lenses.data", sep='  ', names=["one", "two", "three", "four", "five"])
+      d_tree1 = buildTree(df1.sample(frac=.2))
+      test_data1 = df1.sample(frac=.8)
+      output1 = classifyDataFrame(test_data1, d_tree1)
+      target1 = list(test_data1.ix[:, -1])
+      print accuracy(output1, target1)
+
+      df2 = pd.read_csv("votes.data", names= ["Class Name",
+                                              "handicapped-infants", "water-project-cost-sharing",
+                                              "adoption-of-the-budget-resolution", "physician-fee-freeze", "el-salvador-aid",
+                                              "religious-groups-in-schools", "anti-satellite-test-ban",
+                                              "aid-to-nicaraguan-contras", "mx-missile", "immigration",
+                                              "synfuels-corporation-cutback", "education-spending", "superfund-right-to-sue",
+                                              "crime", "duty-free-exports", "export-administration-act-south-africa"])
+      df2 = df2[list(df2)[::-1]]
+      d_tree2 = buildTree(df2.sample(frac=.5))
+      test_data2 = df2.sample(frac=.8)
+      output2 = classifyDataFrame(test_data2, d_tree2)
+      target2 = list(test_data2.ix[:, -1])
+      print accuracy(output2, target2)
+      displayDTree(d_tree2)
     #+END_SRC
-
-    #+BEGIN_SRC python :results output
-     import pandas as pd
-     import numpy as np
-     def calc_entropy(*probabilities):
-         return sum([0 if p == 0 else -p * np.log2(p) for p in probabilities])
-     def calc_info_gain(data, target, feature):
-         pass
-     def nominalize_dataframe(dataframe, numBins, labels):
-         tempdataframe = dataframe.copy(True)
-         for column in list(tempdataframe)[:-1]:
-             tempdataframe[column] = nominalize_column(df[column], numBins, labels)
-             return tempdataframe
-     def nominalize_column(column, numBins, labels):
-         if not isinstance(column[0], str):
-             return pd.cut(column, create_bins(column, numBins), labels=labels)
-     def create_bins(column, numBins):
-         columnMin = float(min(column))
-         columnMin = columnMin - columnMin/10
-         columnMax = float(max(column))
-         return np.linspace(columnMin, columnMax, numBins)
-
-     df = pd.read_csv("iris.data", header = None, names = ["sepal_length", "sepal_width", "petal_length", "petal_width", "class"])
-     names = ["very_small", "small", "medium", "large", "very-large"]
-     nomdf = nominalize_dataframe(df, 6, names)
-     # Get Columns Ratios
-     for column in list(nomdf)[:-1]:
-         for feature in set(nomdf[column]):
-             print column, feature
-             counts = nomdf[nomdf[column] == feature]["class"].value_counts()
-             print calc_entropy(*list(counts / sum(counts))) * list(nomdf[column]).count(feature) / float(nomdf[column].count())
-             #nomdf[nomdf[column] == feature][column].count() / float(nomdf[column].count())
-    #+END_SRC
-
-    #+RESULTS:
-    #+begin_example
-    sepal_length small
-    0.211348729306
-    sepal_length large
-    0.244875419216
-    sepal_length very_small
-    0.0
-    sepal_length medium
-    0.39486511785
-    sepal_length very-large
-    0.0
-    sepal_width 3.5
-    0.0
-    sepal_width 3.1
-    0.124366813547
-    sepal_width 2.0
-    0.0
-    sepal_width 3.0
-    0.264547384391
-    sepal_width 3.9
-    0.0
-    sepal_width 2.5
-    0.0533333333333
-    sepal_width 4.1
-    0.0
-    sepal_width 2.3
-    0.0216340833189
-    sepal_width 3.8
-    0.0367318333622
-    sepal_width 2.4
-    0.0
-    sepal_width 2.2
-    0.0183659166811
-    sepal_width 2.8
-    0.0919546260299
-    sepal_width 4.2
-    0.0
-    sepal_width 4.4
-    0.0
-    sepal_width 3.4
-    0.0832681666378
-    sepal_width 2.9
-    0.0771186432965
-    sepal_width 2.7
-    0.0594645635903
-    sepal_width 3.2
-    0.134210319232
-    sepal_width 3.7
-    0.0
-    sepal_width 3.6
-    0.0183659166811
-    sepal_width 2.6
-    0.0323650198152
-    sepal_width 3.3
-    0.0583659166811
-    sepal_width 4.0
-    0.0
-    petal_length 1.5
-    0.0
-    petal_length 1.0
-    0.0
-    petal_length 3.0
-    0.0
-    petal_length 4.0
-    0.0
-    petal_length 5.0
-    0.0216340833189
-    petal_length 3.5
-    0.0
-    petal_length 6.3
-    0.0
-    petal_length 4.1
-    0.0
-    petal_length 3.3
-    0.0
-    petal_length 4.6
-    0.0
-    petal_length 5.9
-    0.0
-    petal_length 1.9
-    0.0
-    petal_length 3.9
-    0.0
-    petal_length 6.0
-    0.0
-    petal_length 3.7
-    0.0
-    petal_length 5.2
-    0.0
-    petal_length 5.7
-    0.0
-    petal_length 4.3
-    0.0
-    petal_length 4.7
-    0.0
-    petal_length 6.9
-    0.0
-    petal_length 6.7
-    0.0
-    petal_length 4.8
-    0.0266666666667
-    petal_length 4.2
-    0.0
-    petal_length 4.9
-    0.0323650198152
-    petal_length 1.7
-    0.0
-    petal_length 1.2
-    0.0
-    petal_length 4.4
-    0.0
-    petal_length 5.4
-    0.0
-    petal_length 5.1
-    0.0289901036373
-    petal_length 6.4
-    0.0
-    petal_length 5.6
-    0.0
-    petal_length 1.4
-    0.0
-    petal_length 6.1
-    0.0
-    petal_length 1.3
-    0.0
-    petal_length 1.1
-    0.0
-    petal_length 1.6
-    0.0
-    petal_length 6.6
-    0.0
-    petal_length 3.6
-    0.0
-    petal_length 5.3
-    0.0
-    petal_length 3.8
-    0.0
-    petal_length 5.5
-    0.0
-    petal_length 5.8
-    0.0
-    petal_length 4.5
-    0.0289901036373
-    petal_width 0.5
-    0.0
-    petal_width 1.5
-    0.0520017937319
-    petal_width 2.0
-    0.0
-    petal_width 0.6
-    0.0
-    petal_width 2.5
-    0.0
-    petal_width 1.0
-    0.0
-    petal_width 1.1
-    0.0
-    petal_width 1.4
-    0.0289901036373
-    petal_width 1.9
-    0.0
-    petal_width 2.3
-    0.0
-    petal_width 2.4
-    0.0
-    petal_width 0.2
-    0.0
-    petal_width 1.8
-    0.0331053480243
-    petal_width 0.3
-    0.0
-    petal_width 1.2
-    0.0
-    petal_width 1.6
-    0.0216340833189
-    petal_width 1.3
-    0.0
-    petal_width 0.1
-    0.0
-    petal_width 0.4
-    0.0
-    petal_width 2.1
-    0.0
-    petal_width 1.7
-    0.0133333333333
-    petal_width 2.2
-    0.0
-#+end_example
 
 * Week 04 - Neural Networks
 ** How do animals think?
