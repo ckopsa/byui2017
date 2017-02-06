@@ -21,9 +21,77 @@
 * Set Theory
 ** TODO Prove Set Identities
 * Graph Theory   
+* Euclid's GCD
+  #+BEGIN_SRC emacs-lisp
+  (gcd 97 11)
+  #+END_SRC
+
+  #+tblname: abqr1
+  |  a | = |  b | (q) | + | r |
+  |----+---+----+-----+---+---|
+  | 97 | = | 11 |   8 | + | 9 |
+  | 11 | = |  9 |   1 | + | 2 |
+  |  9 | = |  2 |   4 | + | 1 |
+  |  2 | = |  1 |   2 | + | 0 |
+
+  #+BEGIN_SRC emacs-lisp
+  (defun divide (a b)
+    (let ((q (/ a b))
+          (r (% a b)))
+      (list q r)))
+  #+END_SRC
+
+  #+BEGIN_SRC emacs-lisp
+  (let ((a 899)
+        (b 493))
+    (list (divide a b) (gcd a b)))
+  #+END_SRC
+
+  #+BEGIN_SRC emacs-lisp
+  (defun step (a b)
+    (let* ((qr (divide a b))
+           (q (nth 0 qr))
+           (r (nth 1 qr)))
+      (list (list a "=" b (format "(%d)" q) "+" r))))
+  #+END_SRC
+
+  #+tblname: abqr2
+  |   a | = |  b | (q) | + | r |
+  |-----+---+----+-----+---+---|
+  | 899 | = | 11 | 8   | + | 9 |
+  |  11 | = |  8 | (1) | + | 3 |
+  |   8 | = |  3 | (2) | + | 2 |
+  |   3 | = |  2 | (1) | + | 1 |
+  |   2 | = |  1 | (2) | + | 0 |
+
+  #+BEGIN_SRC emacs-lisp :var v=abqr2
+    (let* ((first-row (nth 4 v))
+           (a (nth 0 first-row))
+           (b (nth 2 first-row)))
+      (step b (% a b)))
+  #+END_SRC
+
+* Recursive Sieve
+#+BEGIN_SRC emacs-lisp
+  (defun sieve (limit)
+    (let ((xs (vconcat [0 0] (number-sequence 2 limit))))
+      (loop for i from 2 to (sqrt limit)
+            when (aref xs i)
+            do (loop for m from (* i i) to limit by i
+                     do (aset xs m 0)))
+      (remove 0 xs)))
+  (sieve 2000000)
+  (apply '+ (append (sieve 2000000) nil))
+  (defun rsieve (limit)
+    (rsieve-helper (number-sequence 2 limit) (sqrt limit)))
+  (defun rsieve-helper (nums sqrt-limit)
+    (append (car nums) (mapcar (lambda (x) (if (zerop (% x (car nums))) nil x)) (cdr nums))))
+  (rsieve-helper (number-sequence 2 100) 10)
+
+#+END_SRC
 * Ask a Question
 
-#+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp
   (defun el ()
     (insert "#+BEGIN_SRC emacs-lisp\n\n#+END_SRC"))
 
@@ -41,14 +109,21 @@
                             fto fto))))
               (delete-file fto)
               result)
-          (error "No curl executable found")))))
-#+END_SRC
+          (error "No curl  executable found")))))
+  #+END_SRC
 
-#+RESULTS:
-: ask-question
+  #+RESULTS:
+  : ask-question
 
-#+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC emacs-lisp
 (ask-question)
-#+END_SRC
+  #+END_SRC
 
-It seems like you like the idea of a wild goose chase problem Is this true?
+  #+RESULTS:
+  : 
+  : Thanks for asking!
+  : 
+  : Can the effects of entropy be reversed?
+  : 
+
+Can the effects of entropy be reversed?

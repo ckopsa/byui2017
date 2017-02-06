@@ -68,6 +68,11 @@ ead out in meetings that require
 ** If a section is not applicable, Br. Grimmett states he would remove it.
 ** How long will it take to get our reviewed SRS back?
 *** Don't wait for me.
+** Do you care how we make it look as long as it looks good?
+   Just make it look good. Double space around the headers but not in the text.
+** With the User Interface, do we need to design a user interface?
+   Text
+** Help me make the paradigm shift or requirements and design decisions.
 * Tips from Br. Grimmett
 ** Most important section is "Who is our customer?"
    - People may use your product that aren't necessarily customers.

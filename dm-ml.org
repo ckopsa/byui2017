@@ -37,7 +37,186 @@
     print calc_entropy(2/3.0, 1/3.0)
     nt Shell, processes the data, passes the training data to the classifier's€™s train method, the test data to the predict method, and then compares the predicted values against the correct answers, to produce an overall accuracy (on the test set).
     True
-    6. I have run the HardCoded classifier on the Iris data-set and obtained a result.
+    6. I have run the HardCodeWhen your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
+
+
+1. Please provide a link to your classifier in your public GitHub repo.
+   https://github.com/coljamkop/Decision-Tree
+2. Briefly describe your overall approach to the task and highlight the most
+   difficult part of this assignment.
+
+   My overall approach was to break the project up into little pieces and
+   then combine them all in the end. I started with an entropy function, then
+   added the functionality to handle multiple arguments, then made a function
+   that would find the entropy for a given feature, then for a given column,
+   then find the column with the least entropy, and then use all of those
+   functions to help build the decision tree.
+
+   The hardest part by far was conceptualizing how the decision tree was
+   going to be put together. I kept on thinking of the data structure that I
+   would create in order to handle this idea, but then I realized that I
+   didn't need that, I just need a dictionary. When I was able to realize how
+   my dreams could be accomplished with a dictionary, things started falling
+   together rather quickly.
+
+3. Briefly describe how you handled numeric data.
+
+   Handling numeric data was pretty simple, I would nominalize it by creating
+   bins to organize it by. Once you have the bin ranges for the data to be
+   categorized then the /pandas/ library took care of the rest.
+
+4. Briefly describe your you handled missing data.
+
+   If data was missing it would just move to a known good node in the tree
+   and keep going from there. Definitely not the most elegant solution, but
+   it worked, and my accuracy was average above 90%. What the value defaults
+   to if their is no data is definitely something that could be fine-tuned in
+   the future.
+
+5. Describe your results for the Iris data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations? How did your decision tree compare to your kNN classifier)
+
+   In some cases, I was able to achieve 100%, and even with only using 10% of
+   my data to train on, I would consistently get above 90%. So, that being
+   said, the decision tree was more accurate than the kNN. 25 nodes excluding
+   leaf nodes.
+
+6. Include a textual representation of the tree your algorithm produced for the iris dataset.
+
+   IF petal_width == large AND
+       IF sepal_length == medium AND
+   sepal_width == very_small
+      THEN Iris-virginica
+   sepal_width == small
+      THEN Iris-virginica
+   IF sepal_width == medium AND
+       petal_length == medium
+      THEN Iris-versicolor
+   petal_length == large
+      THEN Iris-virginica
+   sepal_length == very-large
+      THEN Iris-virginica
+   sepal_length == small
+      THEN Iris-virginica
+   IF sepal_length == large AND
+       sepal_width == very_small
+      THEN Iris-virginica
+   sepal_width == small
+      THEN Iris-versicolor
+   petal_width == very-large
+      THEN Iris-virginica
+   petal_width == very_small
+      THEN Iris-setosa
+   IF petal_width == medium AND
+       petal_length == small
+      THEN Iris-versicolor
+   IF petal_length == large AND
+       IF sepal_length == medium AND
+   sepal_width == small
+      THEN Iris-virginica
+   sepal_width == very_very_small
+      THEN Iris-virginica
+   sepal_length == large
+      THEN Iris-virginica
+   petal_length == medium
+      THEN Iris-versicolor
+   petal_width == small
+      THEN Iris-versicolor
+   petal_width == very_very_small
+      THEN Iris-setosa
+
+7. Describe your results for the Lenses data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations?)
+
+   The lenses data set performed fairly well considering the sparse amount of
+   data. Giving it 80% of the data to train on and 20% to test on yielded
+   great results, averaging around 90%, but fluctuating from 80% to 100%. I
+   couldn't figure out how to get Weka to work with the lense data. It would
+   give me poor numbers consistently. I assume it would compare well.
+
+8. Include a textual representation of the tree your algorithm produced for the Lenses dataset.
+
+   four == 1
+      THEN 3
+   IF four == 2 AND
+       IF three == 1 AND
+   IF one == 3 AND
+       two == 1
+      THEN 3
+   two == 2
+      THEN 2
+   one == 2
+      THEN 2
+   one == 1
+      THEN 2
+   IF three == 2 AND
+       IF one == 2 AND
+   two == 1
+      THEN 1
+   two == 2
+      THEN 3
+   one == 1
+      THEN 1
+
+9. Describe your results for the Voting data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations?)
+
+   The results from the voting data were surprisingly good. Compared to
+   algorithms that Weka was using I averaged 20% better results than Weka
+   (Weka was getting 75% and I was getting 95%). It was nice because all the
+   data was already nominal. I just needed to reverse the columns so that the
+   targets were the last column of the data.
+
+10. Include ___a portion of___ the representation of the tree your algorithm produced for the Voting dataset.
+
+    IF physician-fee-freeze == ? AND
+        education-spending == y
+       THEN republican
+    IF education-spending == ? AND
+        crime == ?
+       THEN democrat
+    crime == y
+       THEN republican
+    crime == n
+       THEN democrat
+    education-spending == n
+       THEN democrat
+    IF physician-fee-freeze == n AND
+        IF adoption-of-the-budget-resolution == n AND
+    IF synfuels-corporation-cutback == n AND
+        religious-groups-in-schools == y
+       THEN democrat
+    IF religious-groups-in-schools == n AND
+        duty-free-exports == y
+       THEN democrat
+    duty-free-exports == n
+       THEN republican
+    synfuels-corporation-cutback == y
+       THEN democrat
+    adoption-of-the-budget-resolution == ?
+       THEN democrat
+    adoption-of-the-budget-resolution == y
+       THEN democrat
+
+11. If applicable, please describe anything you did to go above and beyond and the results you saw.
+
+    I made my own functions to nominalize data, and I something that I was
+    proud of was I did the entire project without making a class. I feel like
+    lots of the Data Science things apply really well to the functional
+    programming paradigm, and I tried to stick to that throughout my code.
+    This isn't really going above and beyond, but I didn't look up anyone
+    else's code while doing the project. For me that is always neat to see
+    how I somewhat naturally come up with a working solution.
+
+12. Please select the category you feel best describes your assignment:
+A - Some attempt was made
+B - Developing, but signficantly deficient
+C - Slightly deficient, but still mostly adequate
+*D* - Meets requirements
+*E* - Shows creativity and excels above and beyond requirements
+
+1. Provide a brief justification (1-2 sentences) for selecting that category.
+
+   I think I made a decent effort in adding somethings that weren't
+   necessary required, like nominalizing the data myself. I personally feel
+   that although it isn't much, it's enough to get some recognition.d classifier on the Iris data-set and obtained a result.
        True
     7. What accuracy do you get when running the HardCoded classifier on the
        Iris data-set and why do you think that is? 
@@ -227,7 +406,189 @@
      else:
         return 0
      #+END_EXAMPLE
-** TODO Code
+** Submission
+   When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
+
+
+   1. Please provide a link to your classifier in your public GitHub repo.
+      https://github.com/coljamkop/Decision-Tree
+   2. Briefly describe your overall approach to the task and highlight the most
+      difficult part of this assignment.
+
+      My overall approach was to break the project up into little pieces and
+      then combine them all in the end. I started with an entropy function, then
+      added the functionality to handle multiple arguments, then made a function
+      that would find the entropy for a given feature, then for a given column,
+      then find the column with the least entropy, and then use all of those
+      functions to help build the decision tree.
+      
+      The hardest part by far was conceptualizing how the decision tree was
+      going to be put together. I kept on thinking of the data structure that I
+      would create in order to handle this idea, but then I realized that I
+      didn't need that, I just need a dictionary. When I was able to realize how
+      my dreams could be accomplished with a dictionary, things started falling
+      together rather quickly.
+
+   3. Briefly describe how you handled numeric data.
+
+      Handling numeric data was pretty simple, I would nominalize it by creating
+      bins to organize it by. Once you have the bin ranges for the data to be
+      categorized then the /pandas/ library took care of the rest.
+
+   4. Briefly describe your you handled missing data.
+      
+      If data was missing it would just move to a known good node in the tree
+      and keep going from there. Definitely not the most elegant solution, but
+      it worked, and my accuracy was average above 90%. What the value defaults
+      to if their is no data is definitely something that could be fine-tuned in
+      the future.
+
+   5. Describe your results for the Iris data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations? How did your decision tree compare to your kNN classifier)
+      
+      In some cases, I was able to achieve 100%, and even with only using 10% of
+      my data to train on, I would consistently get above 90%. So, that being
+      said, the decision tree was more accurate than the kNN. 25 nodes excluding
+      leaf nodes.
+
+   6. Include a textual representation of the tree your algorithm produced for the iris dataset.
+      
+    IF petal_width == large AND
+    IF sepal_length == medium AND
+    sepal_width == very_small
+       THEN Iris-virginica
+    sepal_width == small
+       THEN Iris-virginica
+    IF sepal_width == medium AND
+    petal_length == medium
+       THEN Iris-versicolor
+    petal_length == large
+       THEN Iris-virginica
+    sepal_length == very-large
+       THEN Iris-virginica
+    sepal_length == small
+       THEN Iris-virginica
+    IF sepal_length == large AND
+    sepal_width == very_small
+       THEN Iris-virginica
+    sepal_width == small
+       THEN Iris-versicolor
+    petal_width == very-large
+       THEN Iris-virginica
+    petal_width == very_small
+       THEN Iris-setosa
+    IF petal_width == medium AND
+    petal_length == small
+       THEN Iris-versicolor
+    IF petal_length == large AND
+    IF sepal_length == medium AND
+    sepal_width == small
+       THEN Iris-virginica
+    sepal_width == very_very_small
+       THEN Iris-virginica
+    sepal_length == large
+       THEN Iris-virginica
+    petal_length == medium
+       THEN Iris-versicolor
+    petal_width == small
+       THEN Iris-versicolor
+    petal_width == very_very_small
+       THEN Iris-setosa
+   
+   7. Describe your results for the Lenses data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations?)
+
+      The lenses data set performed fairly well considering the sparse amount of
+      data. Giving it 80% of the data to train on and 20% to test on yielded
+      great results, averaging around 90%, but fluctuating from 80% to 100%. I
+      couldn't figure out how to get Weka to work with the lense data. It would
+      give me poor numbers consistently. I assume it would compare well.
+
+   8. Include a textual representation of the tree your algorithm produced for the Lenses dataset.
+
+    four == 1
+       THEN 3
+    IF four == 2 AND
+    IF three == 1 AND
+    IF one == 3 AND
+    two == 1
+       THEN 3
+    two == 2
+       THEN 2
+    one == 2
+       THEN 2
+    one == 1
+       THEN 2
+    IF three == 2 AND
+    IF one == 2 AND
+    two == 1
+       THEN 1
+    two == 2
+       THEN 3
+    one == 1
+       THEN 1
+
+   9. Describe your results for the Voting data set. (e.g., What was the size of the tree? How did your implementation compare to existing implementations?)
+
+      The results from the voting data were surprisingly good. Compared to
+      algorithms that Weka was using I averaged 20% better results than Weka
+      (Weka was getting 75% and I was getting 95%). It was nice because all the
+      data was already nominal. I just needed to reverse the columns so that the
+      targets were the last column of the data.
+
+   10. Include ___a portion of___ the representation of the tree your algorithm produced for the Voting dataset.
+
+    IF physician-fee-freeze == ? AND
+    education-spending == y
+       THEN republican
+    IF education-spending == ? AND
+    crime == ?
+       THEN democrat
+    crime == y
+       THEN republican
+    crime == n
+       THEN democrat
+    education-spending == n
+       THEN democrat
+    IF physician-fee-freeze == n AND
+    IF adoption-of-the-budget-resolution == n AND
+    IF synfuels-corporation-cutback == n AND
+    religious-groups-in-schools == y
+       THEN democrat
+    IF religious-groups-in-schools == n AND
+    duty-free-exports == y
+       THEN democrat
+    duty-free-exports == n
+       THEN republican
+    synfuels-corporation-cutback == y
+       THEN democrat
+    adoption-of-the-budget-resolution == ?
+       THEN democrat
+    adoption-of-the-budget-resolution == y
+       THEN democrat
+
+   11. If applicable, please describe anything you did to go above and beyond and the results you saw.
+
+       I made my own functions to nominalize data, and I something that I was
+       proud of was I did the entire project without making a class. I feel like
+       lots of the Data Science things apply really well to the functional
+       programming paradigm, and I tried to stick to that throughout my code.
+       This isn't really going above and beyond, but I didn't look up anyone
+       else's code while doing the project. For me that is always neat to see
+       how I somewhat naturally come up with a working solution.
+
+   12. Please select the category you feel best describes your assignment:
+   A - Some attempt was made
+   B - Developing, but signficantly deficient
+   C - Slightly deficient, but still mostly adequate
+   *D* - Meets requirements
+   *E* - Shows creativity and excels above and beyond requirements
+
+   13. Provide a brief justification (1-2 sentences) for selecting that category.
+
+       I think I made a decent effort in adding somethings that weren't
+       necessary required, like nominalizing the data myself. I personally feel
+       that although it isn't much, it's enough to get some recognition.
+** DONE Code
+   CLOSED: [2017-02-02 Thu 00:50]
 *** Building the tree:
     It would be cool to build the tree recursively, but have it return the
     entire built tree. If it were to take in all the things it needed, and then
@@ -290,7 +651,6 @@
               else:
                   falsePositive = falsePositive + 1
           return float(truePositive) / len(output)
-
       def displayDTree(tree):
           for key in tree.keys():
               if isinstance(tree[key], dict):
@@ -298,7 +658,7 @@
                   displayDTree(tree[key])
               else:
                   print key[0], "==", key[1]
-                  print "  ", tree[key]
+                  print "  ", "THEN", tree[key]
 
       df0 = pd.read_csv("iris.data", header = None, names = ["sepal_length",
                                                             "sepal_width",
@@ -306,16 +666,15 @@
                                                             "petal_width", "class"])
       names = ["very_very_small", "very_small", "small", "medium", "large", "very-large"]
       nomdf0 = nominalize_dataframe(df0, len(names)+1, names)
-      # Get Columns Ratios
-      d_tree0 = buildTree(nomdf0.sample(frac=.5))
+      d_tree0 = buildTree(nomdf0.sample(frac=.8))
       test_data0 = nomdf0.sample(frac=.2)
       output0 = classifyDataFrame(test_data0, d_tree0)
       target0 = list(test_data0["class"])
       print accuracy(output0, target0)
 
       df1 = pd.read_csv("lenses.data", sep='  ', names=["one", "two", "three", "four", "five"])
-      d_tree1 = buildTree(df1.sample(frac=.2))
-      test_data1 = df1.sample(frac=.8)
+      d_tree1 = buildTree(df1.sample(frac=.8))
+      test_data1 = df1.sample(frac=.2)
       output1 = classifyDataFrame(test_data1, d_tree1)
       target1 = list(test_data1.ix[:, -1])
       print accuracy(output1, target1)
@@ -328,13 +687,106 @@
                                               "synfuels-corporation-cutback", "education-spending", "superfund-right-to-sue",
                                               "crime", "duty-free-exports", "export-administration-act-south-africa"])
       df2 = df2[list(df2)[::-1]]
-      d_tree2 = buildTree(df2.sample(frac=.5))
-      test_data2 = df2.sample(frac=.8)
+      d_tree2 = buildTree(df2.sample(frac=.8))
+      test_data2 = df2.sample(frac=.2)
       output2 = classifyDataFrame(test_data2, d_tree2)
       target2 = list(test_data2.ix[:, -1])
       print accuracy(output2, target2)
       displayDTree(d_tree2)
     #+END_SRC
+
+    #+RESULTS:
+    #+begin_example
+    1.0
+    1.0
+    0.977011494253
+    IF physician-fee-freeze == ? AND
+    education-spending == y
+       THEN republican
+    IF education-spending == ? AND
+    crime == ?
+       THEN democrat
+    crime == y
+       THEN republican
+    crime == n
+       THEN democrat
+    education-spending == n
+       THEN democrat
+    IF physician-fee-freeze == n AND
+    IF adoption-of-the-budget-resolution == n AND
+    IF synfuels-corporation-cutback == n AND
+    religious-groups-in-schools == y
+       THEN democrat
+    IF religious-groups-in-schools == n AND
+    duty-free-exports == y
+       THEN democrat
+    duty-free-exports == n
+       THEN republican
+    synfuels-corporation-cutback == y
+       THEN democrat
+    adoption-of-the-budget-resolution == ?
+       THEN democrat
+    adoption-of-the-budget-resolution == y
+       THEN democrat
+    IF physician-fee-freeze == y AND
+    IF synfuels-corporation-cutback == n AND
+    IF superfund-right-to-sue == y AND
+    IF export-administration-act-south-africa == ? AND
+    adoption-of-the-budget-resolution == n
+       THEN republican
+    adoption-of-the-budget-resolution == y
+       THEN democrat
+    export-administration-act-south-africa == y
+       THEN republican
+    export-administration-act-south-africa == n
+       THEN republican
+    IF superfund-right-to-sue == ? AND
+    export-administration-act-south-africa == ?
+       THEN republican
+    IF export-administration-act-south-africa == y AND
+    duty-free-exports == y
+       THEN democrat
+    duty-free-exports == n
+       THEN republican
+    export-administration-act-south-africa == n
+       THEN republican
+    superfund-right-to-sue == n
+       THEN republican
+    IF synfuels-corporation-cutback == y AND
+    IF mx-missile == n AND
+    IF export-administration-act-south-africa == ? AND
+    duty-free-exports == ?
+       THEN republican
+    duty-free-exports == y
+       THEN democrat
+    duty-free-exports == n
+       THEN democrat
+    IF export-administration-act-south-africa == y AND
+    adoption-of-the-budget-resolution == n
+       THEN republican
+    IF adoption-of-the-budget-resolution == y AND
+    duty-free-exports == y
+       THEN republican
+    duty-free-exports == n
+       THEN democrat
+    IF export-administration-act-south-africa == n AND
+    IF superfund-right-to-sue == y AND
+    water-project-cost-sharing == y
+       THEN republican
+    IF water-project-cost-sharing == n AND
+    handicapped-infants == y
+       THEN republican
+    handicapped-infants == n
+       THEN democrat
+    superfund-right-to-sue == ?
+       THEN democrat
+    superfund-right-to-sue == n
+       THEN democrat
+    mx-missile == y
+       THEN democrat
+    synfuels-corporation-cutback == ?
+       THEN republican
+#+end_example
 
 * Week 04 - Neural Networks
 ** How do animals think?
@@ -362,6 +814,22 @@
 ** What is the Perceptron?
    - A simple neural network based off of M&P neurons.
    - /η/ defines the learning rate of the neural network.
+     
+** What is the Multi-layer Perceptron?
+*** How do neural networks get around linear classification?
+    The use a put a layer of neurons between the input nodes and output nodes.
+*** What does the "hidden layer" do in a MLP?
+    It allows use to classify more complex data by adding more neurons to the Perceptron.
+*** What is back-propagation?
+    Back propagation is the idea of sending the errors of the neural networks
+    back through the hidden layer to identify what went wrong where. This is
+    trying to take a calculated approach to the adjusting the weights of the
+    network to improve accuracy.
+*** What problem does chain rule of differentiation solve?
+    
+*** What is the algorithm for the MLP?
+*** To what values should weights be initialized to?
+*** When does the MLP stop learning?
 * Python Thought of the Day
 ** Code
    #+BEGIN_SRC python :results output
