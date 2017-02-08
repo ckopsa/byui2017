@@ -46,7 +46,7 @@
    difficult part of this assignment.
 
    My overall approach was to break the project up into little pieces and
-   then combine them all in the end. I started with an entropy function, then
+   then combine them all in the en1d. I started with an entropy function, then
    added the functionality to handle multiple arguments, then made a function
    that would find the entropy for a given feature, then for a given column,
    then find the column with the least entropy, and then use all of those
@@ -695,106 +695,14 @@ C - Slightly deficient, but still mostly adequate
       displayDTree(d_tree2)
     #+END_SRC
 
-    #+RESULTS:
-    #+begin_example
-    1.0
-    1.0
-    0.977011494253
-    IF physician-fee-freeze == ? AND
-    education-spending == y
-       THEN republican
-    IF education-spending == ? AND
-    crime == ?
-       THEN democrat
-    crime == y
-       THEN republican
-    crime == n
-       THEN democrat
-    education-spending == n
-       THEN democrat
-    IF physician-fee-freeze == n AND
-    IF adoption-of-the-budget-resolution == n AND
-    IF synfuels-corporation-cutback == n AND
-    religious-groups-in-schools == y
-       THEN democrat
-    IF religious-groups-in-schools == n AND
-    duty-free-exports == y
-       THEN democrat
-    duty-free-exports == n
-       THEN republican
-    synfuels-corporation-cutback == y
-       THEN democrat
-    adoption-of-the-budget-resolution == ?
-       THEN democrat
-    adoption-of-the-budget-resolution == y
-       THEN democrat
-    IF physician-fee-freeze == y AND
-    IF synfuels-corporation-cutback == n AND
-    IF superfund-right-to-sue == y AND
-    IF export-administration-act-south-africa == ? AND
-    adoption-of-the-budget-resolution == n
-       THEN republican
-    adoption-of-the-budget-resolution == y
-       THEN democrat
-    export-administration-act-south-africa == y
-       THEN republican
-    export-administration-act-south-africa == n
-       THEN republican
-    IF superfund-right-to-sue == ? AND
-    export-administration-act-south-africa == ?
-       THEN republican
-    IF export-administration-act-south-africa == y AND
-    duty-free-exports == y
-       THEN democrat
-    duty-free-exports == n
-       THEN republican
-    export-administration-act-south-africa == n
-       THEN republican
-    superfund-right-to-sue == n
-       THEN republican
-    IF synfuels-corporation-cutback == y AND
-    IF mx-missile == n AND
-    IF export-administration-act-south-africa == ? AND
-    duty-free-exports == ?
-       THEN republican
-    duty-free-exports == y
-       THEN democrat
-    duty-free-exports == n
-       THEN democrat
-    IF export-administration-act-south-africa == y AND
-    adoption-of-the-budget-resolution == n
-       THEN republican
-    IF adoption-of-the-budget-resolution == y AND
-    duty-free-exports == y
-       THEN republican
-    duty-free-exports == n
-       THEN democrat
-    IF export-administration-act-south-africa == n AND
-    IF superfund-right-to-sue == y AND
-    water-project-cost-sharing == y
-       THEN republican
-    IF water-project-cost-sharing == n AND
-    handicapped-infants == y
-       THEN republican
-    handicapped-infants == n
-       THEN democrat
-    superfund-right-to-sue == ?
-       THEN democrat
-    superfund-right-to-sue == n
-       THEN democrat
-    mx-missile == y
-       THEN democrat
-    synfuels-corporation-cutback == ?
-       THEN republican
-#+end_example
-
 * Week 04 - Neural Networks
-** How do animals think?
+** Prepare : Reading
+*** How do animals think?
    The brain is filled with neurons that fire when certain conditions are met.
-** What's Hebb's Rule?
+*** What's Hebb's Rule?
    If multiple neurons fire simultaneously the synaptic connection between them
    grows stronger.
-** What's McCulloch and Pitts Neurons?
+*** What's McCulloch and Pitts Neurons?
    Weighted inputs are put into an adder and then if the sum exceeds a threshold
    the neuron fires.
 *** Is this realistic?
@@ -811,11 +719,11 @@ C - Slightly deficient, but still mostly adequate
       themselves, rather it takes place between the neurons.
     - The only values we are allowed to change are the weights and threshold for
       firing.
-** What is the Perceptron?
+*** What is the Perceptron?
    - A simple neural network based off of M&P neurons.
    - /η/ defines the learning rate of the neural network.
      
-** What is the Multi-layer Perceptron?
+*** What is the Multi-layer Perceptron?
 *** How do neural networks get around linear classification?
     The use a put a layer of neurons between the input nodes and output nodes.
 *** What does the "hidden layer" do in a MLP?
@@ -830,6 +738,93 @@ C - Slightly deficient, but still mostly adequate
 *** What is the algorithm for the MLP?
 *** To what values should weights be initialized to?
 *** When does the MLP stop learning?
+** Submission
+When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
+
+1. Please provide a link to your classifier in your public GitHub repo.
+https://github.com/coljamkop/neural-network   
+   
+For each of the following questions, indicate "True" or "False" on the line after the question.
+
+2. A data structure is created to hold a node (a.k.a. neuron)
+True
+3. A set of input weights is stored for each node.
+True
+4. A layer of nodes (of any number) can be easily created.
+True
+5. Bias input is accounted for in each node.
+True
+6. Input can be taken for an actual dataset instance (e.g., Iris) and each node in the layer produces the appropriate value (0 or 1) according to its weights.
+True
+7. Data can be loaded for both the Iris and the Pima Indian Dataset.
+True
+8. Data is appropriately normalized before being given to the Neural Network.
+True
+** Code
+You will be adding to your experiment shell from the previous assignment, by
+implementing a multi-layer perceptron neural network.
+
+You will finish the assignment next week (and there is a second assessment for
+that), however, to help encourage you to get started this week, you need to have
+at least the following completed this week:
+
+Create some type of data structure to hold a node (a.k.a. neuron).
+
+Store the set of input weights for each node.
+
+Provide a way to create a layer of nodes of any number (this should be easily
+specified via a parameter).
+
+Account for a bias input.
+
+Be able to take input from a dataset instance (with an arbitrary number of
+attributes) and have each node produce an output (i.e., 0 or 1) according to its
+weights.
+
+Be able to load and process at least the following two datasets:
+
+Iris (You didn't think we could leave this out did you!)
+
+Pima Indian Diabetes
+
+You should appropriately normalize each data set.
+
+Notice that at this point, we are NOT implementing any sort of training or
+learning in our algorithm. The point of this part of the assignment is to make
+sure you have the basics of a network of nodes in place that can handle a real
+instance from a dataset.
+
+Next week, we will extend this classifier to handle multiple layers of nodes,
+and implement the back-propagation algorithm for updating weights. Then, it will
+be much more interesting ;-).
+
+#+BEGIN_SRC python :results output :tangle neural_net.py
+  import pandas as pd
+  import numpy as np
+  import random
+
+  def create_layer(numNeurons, numInputs):
+      return [[random.uniform(-1.0, 1.0) for x in range(numInputs + 1)] for x in range(numNeurons)]
+  def calc_threshold(input_vector, input_weights):
+      return int(sum([x * y for x, y in zip([-1] + input_vector, input_weights)]) > 0)
+  input_vector = [2, 3, 4]
+  print map(lambda x: calc_threshold(input_vector, x), create_layer(len(input_vector), 3))
+
+  df = pd.read_csv("iris.data", header = None, names = ["sepal_length",
+                                                              "sepal_width",
+                                                              "petal_length",
+                                                              "petal_width", "class"])
+  df_input = df.drop("class", axis=1)
+  df_norm = (df_input - df_input.mean()) / (df_input.max() - df_input.min())
+  print df_norm
+
+  df = pd.read_csv("diabetes.data", header = None)
+  df_input = df.drop(list(df)[-1], axis=1)
+  df_norm = (df_input - df_input.mean()) / (df_input.max() - df_input.min())
+  print df_norm
+
+#+END_SRC
+
 * Python Thought of the Day
 ** Code
    #+BEGIN_SRC python :results output
