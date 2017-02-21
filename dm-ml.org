@@ -738,7 +738,7 @@ C - Slightly deficient, but still mostly adequate
 *** What is the algorithm for the MLP?
 *** To what values should weights be initialized to?
 *** When does the MLP stop learning?
-** Submission
+** Submission 1  
 When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
 
 1. Please provide a link to your classifier in your public GitHub repo.
@@ -760,44 +760,37 @@ True
 True
 8. Data is appropriately normalized before being given to the Neural Network.
 True
+** Submission 2
+When your assignment is complete, please answer the questions in this text file and upload it to I-Learn.
+
+
+1. Please provide a link to your classifier in your public GitHub repo.
+https://github.com/coljamkop/neural-network
+
+For each of the following questions, indicate "True" or "False" on the line after the question.
+
+2. Classifier can be built with an arbitrary number of layers and nodes.
+True
+
+3. The number of weights for the first layer is determined by the number of attributes.
+True
+
+4. Biases are present at every layer.
+True
+
+5. Values can be computed at the output layer (by computing the value of every node at every layer)
+True
+
+6. A sigmoid function is used for the activation function of each node.
+True
+
+7. An instance can be classified (albeit not very accurately) with the network.
+True
+
+8. A complete dataset (e.g., iris) can be classified and the overall accuracy reported.
+True
+
 ** Code
-You will be adding to your experiment shell from the previous assignment, by
-implementing a multi-layer perceptron neural network.
-
-You will finish the assignment next week (and there is a second assessment for
-that), however, to help encourage you to get started this week, you need to have
-at least the following completed this week:
-
-Create some type of data structure to hold a node (a.k.a. neuron).
-
-Store the set of input weights for each node.
-
-Provide a way to create a layer of nodes of any number (this should be easily
-specified via a parameter).
-
-Account for a bias input.
-
-Be able to take input from a dataset instance (with an arbitrary number of
-attributes) and have each node produce an output (i.e., 0 or 1) according to its
-weights.
-
-Be able to load and process at least the following two datasets:
-
-Iris (You didn't think we could leave this out did you!)
-
-Pima Indian Diabetes
-
-You should appropriately normalize each data set.
-
-Notice that at this point, we are NOT implementing any sort of training or
-learning in our algorithm. The point of this part of the assignment is to make
-sure you have the basics of a network of nodes in place that can handle a real
-instance from a dataset.
-
-Next week, we will extend this classifier to handle multiple layers of nodes,
-and implement the back-propagation algorithm for updating weights. Then, it will
-be much more interesting ;-).
-
 #+BEGIN_SRC python :results output :tangle neural_net.py
   import pandas as pd
   import numpy as np
@@ -806,9 +799,39 @@ be much more interesting ;-).
   def create_layer(numNeurons, numInputs):
       return [[random.uniform(-1.0, 1.0) for x in range(numInputs + 1)] for x in range(numNeurons)]
   def calc_threshold(input_vector, input_weights):
-      return int(sum([x * y for x, y in zip([-1] + input_vector, input_weights)]) > 0)
-  input_vector = [2, 3, 4]
-  print map(lambda x: calc_threshold(input_vector, x), create_layer(len(input_vector), 3))
+      return sum([x * y for x, y in zip([-1] + input_vector, input_weights)])
+  def calc_activation(threshold):
+      return 1/(1 + 2.71828**-threshold)
+  def calc_error_output(activation, target):
+      return activation * (1 - activation) * (activation - target)
+  def calc_error_hidden(activation, weights, error):
+      return activation(1 - activation) * sum (map(lambda x: x*error, weights))
+  def calc_weight(current_weight, learning_rate, error, activation):
+      return current_weight - (learning_rate * error * activation)
+  def create_classifier(numInputs, *layers):
+      layers_list = list(layers)
+      layer = layers_list.pop(0)
+      if len(layers_list) == 0:
+          return [create_layer(layer, numInputs)]
+      else:
+          return [create_layer(layer, numInputs)] + create_classifier(layer, *layers_list)
+  def classify(inputVector, imm_neural_net):
+      neural_net = list(imm_neural_net)
+      current_output = map(lambda neuron_weights:calc_activation(calc_threshold(inputVector, neuron_weights)), neural_net.pop(0)) 
+      if len(neural_net) == 0:
+          return current_output
+      else:
+          return classify(current_output, neural_net)
+  def accuracy(output, target):
+      truePositive = 0
+      falsePositive = 0
+      for i in range(len(output)):
+          if output[i] == target[i]:
+              truePositive = truePositive + 1
+          else:
+              falsePositive = falsePositive + 1
+      return float(truePositive) / len(output)
+
 
   df = pd.read_csv("iris.data", header = None, names = ["sepal_length",
                                                               "sepal_width",
@@ -816,14 +839,22 @@ be much more interesting ;-).
                                                               "petal_width", "class"])
   df_input = df.drop("class", axis=1)
   df_norm = (df_input - df_input.mean()) / (df_input.max() - df_input.min())
-  print df_norm
+  classifier = create_classifier(4, 4, 3)
+  output = map(np.argmax, [classify(row, classifier) for index, row in df_norm.iterrows()])
+  classes = list(set(df["class"]))
+  print accuracy(output, [classes.index(x) for x in df["class"]])
 
   df = pd.read_csv("diabetes.data", header = None)
   df_input = df.drop(list(df)[-1], axis=1)
   df_norm = (df_input - df_input.mean()) / (df_input.max() - df_input.min())
-  print df_norm
+  df_norm
 
-#+END_SRC
+  #+END_SRC
+
+#+RESULTS:
+: set([0])
+: 0.333333333333
+ 
 
 * Python Thought of the Day
 ** Code
@@ -870,3 +901,31 @@ be much more interesting ;-).
    : 30
    : Calling the deleter for my "private" member variable
    : Ending the example
+** Code
+#+BEGIN_SRC python results:output
+
+#+END_SRC
+* Team Project
+** Data Understanding
+*** What is the overall objective of your project?
+    To find patterns in students' academic progression associated with
+    graduating quickly and within the credit limit.
+*** Where/how are you going to obtain the data? For example, do you need to scrape the data from a web source, contact a company or individual for access/permission?
+    We will receive the data from Br. Bergstrom through Br. Burton.
+*** Are there any copyright or terms of service limitations that may affect your ability to work with the data?
+    Only having access to one copy of the data could potentially limit data, but
+    we are working with Br. Burton to get that sorted out.
+*** What type of machine learning algorithm / process do you anticipate using (e.g., classification, regression, clustering) and if applicable, what variable(s), in particular, will you be trying to classify, etc. 
+    Classification through a decision tree, because knowing whether or not a
+    student graduates is not as valuable as knowing why they graduate. We'll be
+    looking at the order students take classes and how that influences their
+    graduation, grades, failing a class, repeating a class, changing majors,
+    marital status, serving a mission, prerequisites.
+*** How many and what type of attributes do you anticipate? (e.g., less than than 10 vs. 50-100, numeric vs. nominal, time-series data, etc.)
+    Approximately a total of 20 attributes.
+*** How many instances or records do you anticipate?
+    6000 students + 240000 courses taken + 4000 graduated students
+*** What do you see as the biggest risk to the success of your project?
+    The biggest risk for us is asking too broad of a question could lead to
+    difficulty in discovering good/solid conclusions. Another challenge is
+    filtering the data to have relevant information to work with.

@@ -14,270 +14,270 @@
 #+SELECT_TAGS: export
 * 01
 ** Teach One Another : Web Technology Discussion
-What are some of the most popular IDEs or editors for web development
-today?  
+   What are some of the most popular IDEs or editors for web development
+   today?  
 
-Free & Open Source: Atom 
+   Free & Open Source: Atom 
 
-Atom is a simple, yet extensible text editor built by GitHub for web
-development. It has a built in package manager that allows one to
-quickly add/remove features to improve productivity. It works
-cross-platform, so anyone using a Windows, Mac, or Linux machine can
-use it. It provides auto-completion, file system browsing, and find
-and replace over an entire project.
+   Atom is a simple, yet extensible text editor built by GitHub for web
+   development. It has a built in package manager that allows one to
+   quickly add/remove features to improve productivity. It works
+   cross-platform, so anyone using a Windows, Mac, or Linux machine can
+   use it. It provides auto-completion, file system browsing, and find
+   and replace over an entire project.
 
-Proprietary: WebStorm
+   Proprietary: WebStorm
 
-WebStorm is a lot heavier of an application, but provides a more
-polished product. It has all the features stated about Atom, but adds
-code inspection with quick-fixes, coding assistance with popular
-frameworks, and debugging features.
+   WebStorm is a lot heavier of an application, but provides a more
+   polished product. It has all the features stated about Atom, but adds
+   code inspection with quick-fixes, coding assistance with popular
+   frameworks, and debugging features.
 
-Sources:
-https://www.jetbrains.com/webstorm/features/
-https://atom.io
-http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-for-javascript-html-and-css
+   Sources:
+   https://www.jetbrains.com/webstorm/features/
+   https://atom.io
+   http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-for-javascript-html-and-css
 ** Ponder : Internet & Web Jargon
-1. AJAX
-   - asynchronous JavaScript and XML
-   - used to create asynchronous web applications
-   - allows you to change page content without loading a new URL
-   - Programming the World Wide Web - pg 5
-   - http://www.w3schools.com/xml/ajax_intro.asp
-2. applet
-   - used to provide interactive features to web applications that
-     cannot be provided by HTML alone
-   - limited control on content outside of the applet's designated
-     area.
-   - written in Java
-   - Examples:
-     - Quicktime
-     - Flash
-   - https://en.wikipedia.org/wiki/Applet#Web-based_Applets
-   - https://netbeans.org/kb/docs/web/applets.html
-3. Bootstrap framework
-   - free and open-source
-   - HTML and CSS based
-   - Only for front-end development
-   - Built to increase consistency of front-end structure
-   - the most popular HTML, CSS, and JS framework for developing
-     responsive, mobile first projects on the web.
-   - https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)
-   - http://getbootstrap.com/#content
-4. CGI (common gateway interface)
-   - Used to create a "gateway" to legacy information systems,
-     existing documents, or an existing database through an HTTP
-     server.
-   - an agreement between implementors about how to design/integrate gateways
-   - offers a standard protocol for web servers to interface with
-     executable programs running on a server that generate web pages
-     dynamically.
-   - https://www.w3.org/CGI/
-   - https://en.wikipedia.org/wiki/Common_Gateway_Interface
-5. client 
-   - recipients of data from a server/servers
-   - request documents from servers and display them to users
-   - a computer program that, as part of its operation, relies on
-     sending a request to another computer program
-   - Programming the World Wide Web - pg 7
-   - Programming the World Wide Web - pg 5
-   - https://en.wikipedia.org/wiki/Client_(computing)
-6. CSS
-   - describes how HTML elements should be displayed
-   - can control multiple HTML pages
-   - a style sheet language used for describing the presentation of a
-     document written in a markup language
-   - https://en.wikipedia.org/wiki/Cascading_Style_Sheets
-   - http://www.w3schools.com/css/css_intro.asp
-7. DHTML
-   - an umbrella term for a collection of technologies used together
-     to create interactive and animated web sites
-   - uses a combination of a static markup language, a client-side
-     scripting language, a presentation definition language, and the
-     Document Object Model.
-   - https://en.wikipedia.org/wiki/Dynamic_HTML
-   - http://w3schools.sinsixx.com/dhtml/dhtml_intro.asp.htm
-8. DNS
-   - a hierarchical decentralized naming system for computers,
-     services, or any resource connected to the Internet or a private
-     network
-   - translates domain names to numerical IP addresses
-   - domain names are converted to IP addresses through name servers
-   - https://en.wikipedia.org/wiki/Domain_Name_System
-   - Programming the World Wide Web - pg 5
-9. ethernet
-   - a system for connecting a number of computer systems to form a
-     local area network
-   - uses protocols to control the passing of information and to avoid
-     simultaneous transmission by two or more systems.
-   - a family of computer networking technologies commonly used in
-     local area networks and metropolitan area networks
-   - https://en.wikipedia.org/wiki/Ethernet
-   - Google Definition
-10. FTP
-    - the commonly used protocol for exchanging files over the Internet
-    - uses the Internet's TCP/IP protocols to enable data transfer
-    - http://www.webopedia.com/TERM/F/ftp.html
-    - Programming the World Wide Web - pg 5
-11. HTML
-    - Hyper Text Markup Language
-    - the standard markup language for creating Web pages
-    - describes and defines the content of a webpage
-    - http://www.w3schools.com
-    - https://developer.mozilla.org/en-US/docs/Web/HTML
-12. HTTP
-    - provides communication interface for connections between browsers and Web servers
-    - the foundation of data communication for the World Wide Web
-    - https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#pc1
-    - Programming the World Wide Web - pg 2
-13. IP address
-    - a unique 32-bit number that represents the address of a computer connected to the internet
-    - a unique string of numbers separated by periods that identifies each computer using the  Internet Protocol to communicate over a network
-    - Programming the World Wide Web - pg 4
-    - Google Definition
-14. JQuery
-    - a cross-platform JavaScript library designed to simplify the
-      client-side scripting of HTML
-    - makes things like HTML document traversal and manipulation,
-      event handling, animation, and Ajax much simpler with an
-      easy-to-use API that works across a multitude of browsers
-    - https://en.wikipedia.org/wiki/JQuery
-    - https://jquery.com/
-15. MIME
-    - Multipurpose Internet Mail Extension
-    - developed to specify format of different kinds of documents
-    - originally used with internet mail, but was adopted to the Web
-    - a standard for formatting files of different types, such as
-      text, graphics, or audio, so they can be sent over the Internet
-      and seen or played by a web browser or e-mail application.
-    - Programming the World Wide Web - pg 12
-    - Google Definition
-16. ping
-    - query (another computer on a network) to determine whether there
-      is a connection to it.
-    - a computer network administration software utility used to test
-      the reachability of a host on an Internet Protocol (IP) network
-    - Google Definition
-    - https://en.wikipedia.org/wiki/Ping_(networking_utility)
-17. router
-    - a device that forwards data packets to the appropriate parts of
-      a computer network
-    - perform the traffic directing functions on the Internet
-    - Google Definition
-    - https://en.wikipedia.org/wiki/Router_(computing)
-18. server
-    - hosts data and provides it to clients over a network
-    - a computer program or a device that provides functionality for
-      other programs or devices, called "clients"
-    - Programming the World Wide Web - pg 2
-    - https://en.wikipedia.org/wiki/Server_(computing)
-19. servlet
-    - a Java class
-    - executed on the server system
-    - produces an HTML document as a response
-    - a small, server-resident program that typically runs
-      automatically in response to user input
-    - Google Definition
-    - Programming the World Wide Web - pg 26
-20. SQL
-    - Structured Query Language
-    - a special-purpose domain-specific language used in programming
-      and designed for managing data held in a relational database
-      management system (RDBMS), or for stream processing in a
-      relational data stream management system (RDSMS).
-    - a standard language for accessing databases
-    - http://www.w3schools.com/sql/
-    - https://en.wikipedia.org/wiki/SQL
-21. SSH
-    - a cryptographic network protocol for operating network services
-      securely over an unsecured network
-    - a program for logging into a remote machine and for executing
-      commands on a remote machine
-    - https://en.wikipedia.org/wiki/Secure_Shell
-    - http://linuxcommand.org/man_pages/ssh1.html
-22. SSL
-    - the standard security technology for establishing an encrypted
-      link between a web server and browser.
-    - cryptographic protocols that provide communications security
-      over a computer network
-    - http://info.ssl.com/article.aspx?id=10241
-    - https://en.wikipedia.org/wiki/Transport_Layer_Security
-23. TCP/IP
-    - Transmission Control Protocol/Internet Protocol
-    - used to allow a program on one computer to communicate with a
-      program on another computer via the Internet
-    - the conceptual model and set of communications protocols used on
-      the Internet and similar computer networks
-    - https://en.wikipedia.org/wiki/Internet_protocol_suite
-    - Programming the World Wide Web - pg 3
-24. telnet (this is also an acronym)
-    - a popular protocol that runs on top of TCP/IP
-    - allows one user on the Internet to log on to another computer on the Internet
-    - a network protocol that allows a user on one computer to log
-      onto another computer that is part of same network
-    - Google Definition
-    - Programming the World Wide Web - pg 5
-25. traceroute
-    - a computer network diagnostic tool for displaying the route
-      (path) and measuring transit delays of packets across an
-      Internet Protocol (IP) network
-    - tracks the path of data between two points
-    - http://www.whatsmyip.org/traceroute/
-    - https://en.wikipedia.org/wiki/Traceroute
-26. unicode
-    - provides a unique number for every character
-    - a computing industry standard for the consistent encoding,
-      representation, and handling of text expressed in most of the
-      world's writing systems
-    - http://unicode.org/standard/WhatIsUnicode.html
-    - https://en.wikipedia.org/wiki/Unicode
-27. URL
-    - specify addresses of resources found on the Web
-    - a reference to a web resource that specifies its location on a
-      computer network and a mechanism for retrieving it
-    - Programming the World Wide Web - pg 2
-    - https://en.wikipedia.org/wiki/Uniform_Resource_Locator
-28. UTF-8
-    - UTF-8 is a compromise character encoding that can be as compact
-      as ASCII (if the file is just plain English text) but can also
-      contain any unicode characters (with some increase in file
-      size).
-    - a character encoding capable of encoding all possible
-      characters, or code points, defined by Unicode
-    - https://en.wikipedia.org/wiki/UTF-8
-    - http://www.fileformat.info/info/unicode/utf8.htm
-29. W3C
-    - World Wide Web Consortium
-    - primary purpose was to develop and distribute standards for Web technologies
-    - an international community that develops open standards to
-      ensure the long-term growth of the Web
-    - https://www.w3.org/
-    - Programming the World Wide Web - pg 35
-30. xDSL
-    - a family of technologies that are used to transmit digital data
-      over telephone lines
-    - https://en.wikipedia.org/wiki/Digital_subscriber_line
-    - http://www.webopedia.com/TERM/X/xDSL.html
-31. XHTML
-    - eXtensible HTML
-    - redefinintion of HTML 4.01 using XML
-    - mirrors or extends versions of the widely used Hypertext Markup
-      Language (HTML)
-    - https://en.wikipedia.org/wiki/Digital_subscriber_line
-    - Programming the World Wide Web - pg 35
-32. XML
-    - eXtensible Markup Language
-    - allows users to create their own markup language defining tags
-      and attributes for application at hand
-    - designed to store and transport data and be self-descriptive
-    - Programming the World Wide Web - pg 23
-    - http://www.w3schools.com/xml/xml_whatis.asp
-33. XSL
-    - a language for expressing style sheets
-    - used to refer to a family of languages used to transform and
-      render XML documents
-    - https://www.w3.org/Style/XSL/WhatIsXSL.html
-    - https://en.wikipedia.org/wiki/XSL
+   1. AJAX
+      - asynchronous JavaScript and XML
+      - used to create asynchronous web applications
+      - allows you to change page content without loading a new URL
+      - Programming the World Wide Web - pg 5
+      - http://www.w3schools.com/xml/ajax_intro.asp
+   2. applet
+      - used to provide interactive features to web applications that
+        cannot be provided by HTML alone
+      - limited control on content outside of the applet's designated
+        area.
+      - written in Java
+      - Examples:
+        - Quicktime
+        - Flash
+      - https://en.wikipedia.org/wiki/Applet#Web-based_Applets
+      - https://netbeans.org/kb/docs/web/applets.html
+   3. Bootstrap framework
+      - free and open-source
+      - HTML and CSS based
+      - Only for front-end development
+      - Built to increase consistency of front-end structure
+      - the most popular HTML, CSS, and JS framework for developing
+        responsive, mobile first projects on the web.
+      - https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)
+      - http://getbootstrap.com/#content
+   4. CGI (common gateway interface)
+      - Used to create a "gateway" to legacy information systems,
+        existing documents, or an existing database through an HTTP
+        server.
+      - an agreement between implementors about how to design/integrate gateways
+      - offers a standard protocol for web servers to interface with
+        executable programs running on a server that generate web pages
+        dynamically.
+      - https://www.w3.org/CGI/
+      - https://en.wikipedia.org/wiki/Common_Gateway_Interface
+   5. client 
+      - recipients of data from a server/servers
+      - request documents from servers and display them to users
+                                                        - a computer program that, as part of its operation, relies on
+                                                          sending a request to another computer program
+        - Programming the World Wide Web - pg 7
+      - Programming the World Wide Web - pg 5
+      - https://en.wikipedia.org/wiki/Client_(computing)
+   6. CSS
+      - describes how HTML elements should be displayed
+      - can control multiple HTML pages
+      - a style sheet language used for describing the presentation of a
+        document written in a markup language
+      - https://en.wikipedia.org/wiki/Cascading_Style_Sheets
+      - http://www.w3schools.com/css/css_intro.asp
+   7. DHTML
+      - an umbrella term for a collection of technologies used together
+        to create interactive and animated web sites
+      - uses a combination of a static markup language, a client-side
+        scripting language, a presentation definition language, and the
+        Document Object Model.
+      - https://en.wikipedia.org/wiki/Dynamic_HTML
+      - http://w3schools.sinsixx.com/dhtml/dhtml_intro.asp.htm
+   8. DNS
+      - a hierarchical decentralized naming system for computers,
+        services, or any resource connected to the Internet or a private
+        network
+      - translates domain names to numerical IP addresses
+      - domain names are converted to IP addresses through name servers
+      - https://en.wikipedia.org/wiki/Domain_Name_System
+      - Programming the World Wide Web - pg 5
+   9. ethernet
+      - a system for connecting a number of computer systems to form a
+        local area network
+      - uses protocols to control the passing of information and to avoid
+                                  simultaneous transmission by two or more systems.
+      - a family of computer networking technologies commonly used in
+        local area networks and metropolitan area networks
+      - https://en.wikipedia.org/wiki/Ethernet
+      - Google Definition
+   10. FTP
+       - the commonly used protocol for exchanging files over the Internet
+       - uses the Internet's TCP/IP protocols to enable data transfer
+       - http://www.webopedia.com/TERM/F/ftp.html
+       - Programming the World Wide Web - pg 5
+   11. HTML
+       - Hyper Text Markup Language
+       - the standard markup language for creating Web pages
+       - describes and defines the content of a webpage
+       - http://www.w3schools.com
+       - https://developer.mozilla.org/en-US/docs/Web/HTML
+   12. HTTP
+       - provides communication interface for connections between browsers and Web servers
+       - the foundation of data communication for the World Wide Web
+       - https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#pc1
+       - Programming the World Wide Web - pg 2
+   13. IP address
+       - a unique 32-bit number that represents the address of a computer connected to the internet
+       - a unique string of numbers separated by periods that identifies each computer using the  Internet Protocol to communicate over a network
+       - Programming the World Wide Web - pg 4
+       - Google Definition
+   14. JQuery
+       - a cross-platform JavaScript library designed to simplify the
+         client-side scripting of HTML
+       - makes things like HTML document traversal and manipulation,
+         event handling, animation, and Ajax much simpler with an
+         easy-to-use API that works across a multitude of browsers
+       - https://en.wikipedia.org/wiki/JQuery
+       - https://jquery.com/
+   15. MIME
+       - Multipurpose Internet Mail Extension
+       - developed to specify format of different kinds of documents
+       - originally used with internet mail, but was adopted to the Web
+       - a standard for formatting files of different types, such as
+         text, graphics, or audio, so they can be sent over the Internet
+         and seen or played by a web browser or e-mail application.
+       - Programming the World Wide Web - pg 12
+       - Google Definition
+   16. ping
+       - query (another computer on a network) to determine whether there
+         is a connection to it.
+       - a computer network administration software utility used to test
+         the reachability of a host on an Internet Protocol (IP) network
+       - Google Definition
+       - https://en.wikipedia.org/wiki/Ping_(networking_utility)
+   17. router
+       - a device that forwards data packets to the appropriate parts of
+         a computer network
+       - perform the traffic directing functions on the Internet
+       - Google Definition
+       - https://en.wikipedia.org/wiki/Router_(computing)
+   18. server
+       - hosts data and provides it to clients over a network
+       - a computer program or a device that provides functionality for
+         other programs or devices, called "clients"
+       - Programming the World Wide Web - pg 2
+       - https://en.wikipedia.org/wiki/Server_(computing)
+   19. servlet
+       - a Java class
+       - executed on the server system
+       - produces an HTML document as a response
+       - a small, server-resident program that typically runs
+         automatically in response to user input
+       - Google Definition
+       - Programming the World Wide Web - pg 26
+   20. SQL
+       - Structured Query Language
+       - a special-purpose domain-specific language used in programming
+         and designed for managing data held in a relational database
+         management system (RDBMS), or for stream processing in a
+         relational data stream management system (RDSMS).
+       - a standard language for accessing databases
+       - http://www.w3schools.com/sql/
+       - https://en.wikipedia.org/wiki/SQL
+   21. SSH
+       - a cryptographic network protocol for operating network services
+         securely over an unsecured network
+       - a program for logging into a remote machine and for executing
+         commands on a remote machine
+       - https://en.wikipedia.org/wiki/Secure_Shell
+       - http://linuxcommand.org/man_pages/ssh1.html
+   22. SSL
+       - the standard security technology for establishing an encrypted
+         link between a web server and browser.
+       - cryptographic protocols that provide communications security
+         over a computer network
+       - http://info.ssl.com/article.aspx?id=10241
+       - https://en.wikipedia.org/wiki/Transport_Layer_Security
+   23. TCP/IP
+       - Transmission Control Protocol/Internet Protocol
+       - used to allow a program on one computer to communicate with a
+         program on another computer via the Internet
+       - the conceptual model and set of communications protocols used on
+         the Internet and similar computer networks
+       - https://en.wikipedia.org/wiki/Internet_protocol_suite
+       - Programming the World Wide Web - pg 3
+   24. telnet (this is also an acronym)
+       - a popular protocol that runs on top of TCP/IP
+       - allows one user on the Internet to log on to another computer on the Internet
+       - a network protocol that allows a user on one computer to log
+         onto another computer that is part of same network
+       - Google Definition
+       - Programming the World Wide Web - pg 5
+   25. traceroute
+       - a computer network diagnostic tool for displaying the route
+         (path) and measuring transit delays of packets across an
+         Internet Protocol (IP) network
+       - tracks the path of data between two points
+       - http://www.whatsmyip.org/traceroute/
+       - https://en.wikipedia.org/wiki/Traceroute
+   26. unicode
+       - provides a unique number for every character
+       - a computing industry standard for the consistent encoding,
+         representation, and handling of text expressed in most of the
+         world's writing systems
+       - http://unicode.org/standard/WhatIsUnicode.html
+       - https://en.wikipedia.org/wiki/Unicode
+   27. URL
+       - specify addresses of resources found on the Web
+       - a reference to a web resource that specifies its location on a
+         computer network and a mechanism for retrieving it
+       - Programming the World Wide Web - pg 2
+       - https://en.wikipedia.org/wiki/Uniform_Resource_Locator
+   28. UTF-8
+       - UTF-8 is a compromise character encoding that can be as compact
+         as ASCII (if the file is just plain English text) but can also
+         contain any unicode characters (with some increase in file
+         size).
+       - a character encoding capable of encoding all possible
+         characters, or code points, defined by Unicode
+       - https://en.wikipedia.org/wiki/UTF-8
+       - http://www.fileformat.info/info/unicode/utf8.htm
+   29. W3C
+       - World Wide Web Consortium
+       - primary purpose was to develop and distribute standards for Web technologies
+       - an international community that develops open standards to
+         ensure the long-term growth of the Web
+       - https://www.w3.org/
+       - Programming the World Wide Web - pg 35
+   30. xDSL
+       - a family of technologies that are used to transmit digital data
+         over telephone lines
+       - https://en.wikipedia.org/wiki/Digital_subscriber_line
+       - http://www.webopedia.com/TERM/X/xDSL.html
+   31. XHTML
+       - eXtensible HTML
+       - redefinintion of HTML 4.01 using XML
+       - mirrors or extends versions of the widely used Hypertext Markup
+         Language (HTML)
+       - https://en.wikipedia.org/wiki/Digital_subscriber_line
+       - Programming the World Wide Web - pg 35
+   32. XML
+       - eXtensible Markup Language
+       - allows users to create their own markup language defining tags
+         and attributes for application at hand
+       - designed to store and transport data and be self-descriptive
+       - Programming the World Wide Web - pg 23
+       - http://www.w3schools.com/xml/xml_whatis.asp
+   33. XSL
+       - a language for expressing style sheets
+       - used to refer to a family of languages used to transform and
+         render XML documents
+       - https://www.w3.org/Style/XSL/WhatIsXSL.html
+       - https://en.wikipedia.org/wiki/XSL
 * 02
 ** Teach One Another : Style Guide
 *** Copyright
@@ -683,3 +683,407 @@ http://ourcodeworld.com/articles/read/200/top-7-best-free-web-development-ide-fo
     </body>
   </html>
 #+END_SRC
+* Test
+#+BEGIN_SRC html :tangle example.html
+  <!DOCTYPE html>
+  <html>
+     <head>
+       <title>Prepare 06.2</title>
+       <meta charset="utf-8"/>
+       <style type="text/css">
+         .text { position: absolute; top: 10px; left: 10px; }
+       </style>
+     </head>
+     <body>
+       <p class="text">One</p>
+       <p class="text">Two</p>
+     </body>
+  </html>
+#+END_SRC
+* 07 - Ponder
+** Style Sheet
+   #+BEGIN_SRC css :tangle style.css
+     @import url('https://fonts.googleapis.com/css?family=Pangolin');
+     /* This is the style of our error messages */
+     .error {
+         width  : 100%;
+         padding: 0;
+         font-size: 80%;
+         color: white;
+         background-color: #900;
+         border-radius: 0 0 5px 5px;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box;
+     }
+
+     .error.active {
+         padding: 0.3em;
+     }
+     form {
+         background-color: #F2E0B0;
+         margin: auto;
+         padding: 25px;
+         width: 60%;
+         height: auto;
+     }
+     body {
+         margin: 0px;
+         background-color: #7A5C54;
+     }
+     form h1 {
+         margin: auto;
+         width: 250px;
+     }
+     h1, h2, h3, p, input, td, th , a {
+         font-family: 'Pangolin', cursive;
+     }
+     input {
+         font-size: 14px;
+     }
+     #submission {
+         width: 130px;
+         margin: auto;
+     }
+     #nav-bar {
+         background-color: #931009;
+         width: 100%;
+         height: 70px;
+     }
+     .nav-bar-button{
+         float: left;
+         margin-left: 10px;
+         margin-top: 20px;
+         padding: 5px;
+         text-align: center;
+         text-decoration: none;
+         color: #faebd7;
+         font-size: 20px;
+     }
+     .nav-bar-button:hover {
+         color: white;
+     }
+
+   #+END_SRC
+** Header
+   #+BEGIN_SRC web :tangle week07.html
+     <html>
+         <head>
+             <title>Original Burger</title>
+
+             <meta charset="utf-8" />
+             <link href="style.css" rel="stylesheet" type="text/css">
+             <script type="text/javascript" src="week07.js"></script>
+         </head>
+         <body onload="console.log('Site Loaded')">
+             <div id="nav-bar">
+                 <a id="home-button" class="nav-bar-button" href="./week07.html">Original Burger</a>
+                 <a class="nav-bar-button" href="./week07.html">Place An Order</a>
+             </div>
+             <form onsubmit="return checkAllInputs(this)" onreset="clearAllInputs(this)">
+                 <h1>Place an Order</h1>
+   #+END_SRC
+** Name
+   The first and last name of the customer.
+   #+BEGIN_SRC web :tangle week07.html
+     <div id="name">
+         <h2>Name</h2>
+         <input type="text" name="firstname" placeholder="First Name"
+                onblur="validate(this,
+                         '\^\(\[ \\u00c0\-\\u01ffa\-zA\-Z\'\\\-\]\)\+\$',
+                         'Invalid Name')">
+         <span class="error" aria-live="polite"></span>
+         <br/>
+         <input type="text" name="lastname" placeholder="Last Name"
+                onblur="validate(this,
+                         '\^\(\[ \\u00c0\-\\u01ffa\-zA\-Z\'\\\-\]\)\+\$',
+                         'Invalid Name')">
+         <span class="error" aria-live="polite"></span>
+         <br/>
+     </div>
+   #+END_SRC
+   #+BEGIN_SRC javascript :tangle week07.js
+     function validate(element, regex, errorMessage) {
+         var pattern = new RegExp(regex);
+         var input = element;
+         var error = element.nextElementSibling;
+         if (pattern.test(element.value)) {
+             error.innerHTML = ""; // Reset the content of the message
+             error.className = "error"; // Reset the visual state of the message
+         }
+         else {
+             error.innerHTML = errorMessage;
+             error.className = "error active";
+         }
+     }
+   #+END_SRC
+** Address
+   The user must be able to enter the shipping address. This can be done many
+   ways.
+   #+BEGIN_SRC web :tangle week07.html
+     <div id="address">
+         <h2>Address</h2>
+         <input type="text" name="streetaddress" placeholder="Street Address"
+                onblur="validate(this,
+                         '.',
+                         'Invalid City')">
+
+         <span class="error" aria-live="polite"></span>
+         <br/>
+         <input type="text" 
+                name="city"
+                placeholder="City"
+                onblur="validate(this,
+                         '\^\(\[ \\u00c0\-\\u01ffa\-zA\-Z\'\\\-\]\)\+\$',
+                         'Invalid City')">
+         <span class="error" aria-live="polite"></span>
+         <select>
+      	      <option value="AL">Alabama</option>
+      	      <option value="AK">Alaska</option>
+      	      <option value="AZ">Arizona</option>
+      	      <option value="AR">Arkansas</option>
+      	      <option value="CA">California</option>
+      	      <option value="CO">Colorado</option>
+      	      <option value="CT">Connecticut</option>
+      	      <option value="DE">Delaware</option>
+      	      <option value="DC">District Of Columbia</option>
+      	      <option value="FL">Florida</option>
+      	      <option value="GA">Georgia</option>
+      	      <option value="HI">Hawaii</option>
+      	      <option value="ID">Idaho</option>
+      	      <option value="IL">Illinois</option>
+      	      <option value="IN">Indiana</option>
+      	      <option value="IA">Iowa</option>
+      	      <option value="KS">Kansas</option>
+      	      <option value="KY">Kentucky</option>
+      	      <option value="LA">Louisiana</option>
+      	      <option value="ME">Maine</option>
+      	      <option value="MD">Maryland</option>
+      	      <option value="MA">Massachusetts</option>
+      	      <option value="MI">Michigan</option>
+      	      <option value="MN">Minnesota</option>
+      	      <option value="MS">Mississippi</option>
+      	      <option value="MO">Missouri</option>
+      	      <option value="MT">Montana</option>
+      	      <option value="NE">Nebraska</option>
+      	      <option value="NV">Nevada</option>
+      	      <option value="NH">New Hampshire</option>
+      	      <option value="NJ">New Jersey</option>
+      	      <option value="NM">New Mexico</option>
+      	      <option value="NY">New York</option>
+      	      <option value="NC">North Carolina</option>
+      	      <option value="ND">North Dakota</option>
+      	      <option value="OH">Ohio</option>
+      	      <option value="OK">Oklahoma</option>
+      	      <option value="OR">Oregon</option>
+      	      <option value="PA">Pennsylvania</option>
+      	      <option value="RI">Rhode Island</option>
+      	      <option value="SC">South Carolina</option>
+      	      <option value="SD">South Dakota</option>
+      	      <option value="TN">Tennessee</option>
+      	      <option value="TX">Texas</option>
+      	      <option value="UT">Utah</option>
+      	      <option value="VT">Vermont</option>
+      	      <option value="VA">Virginia</option>
+      	      <option value="WA">Washington</option>
+      	      <option value="WV">West Virginia</option>
+      	      <option value="WI">Wisconsin</option>
+      	      <option value="WY">Wyoming</option>
+         </select>
+         <br/>
+         <input type="text"
+                name="zipcode"
+                placeholder="Zip Code #" 
+                onblur="validate(this,
+                         '\^\(\\d{5}\(\-\\d{4}\)\?\)\+\$',
+                         'Invalid Zip Code')">
+         <span class="error" aria-live="polite"></span>
+     </div>
+   #+END_SRC
+** Phone
+   Customers typically need to provide contact info in case there is a question
+   about the order.
+   #+BEGIN_SRC web :tangle week07.html
+     <div id="phone">
+         <h2>Phone</h2>
+         <input type="text" name="phone" placeholder="Phone # " onblur="validate(this,
+                         '\^\(\\d\{3\}\[\-\\. \]\?\\d\{3\}\[\-\\. \]\?\\d\{4\}\)\$',
+                         'Invalid Phone Number')">
+         <span class="error" aria-live="polite"></span>
+     </div>
+   #+END_SRC
+** Shopping Cart
+   Provide some way for the user to specify what they wish to purchase. While
+   this can be done many ways, probably the easiest is to create a table with
+   check boxes, the customer can then check the box next to the item to be
+   purchased. Note that each item should have the price indicated in some way.
+   If you want to get fancy, you could allow the customer to select how many
+   items are to be purchased.
+   #+BEGIN_SRC web :tangle week07.html
+     <div id="shopping-cart">
+         <h2>Order</h2>
+         <table> 
+             <tr>
+                 <th>Item</th>
+                 <th>Price</th>
+             </tr>
+             <tr onclick="checkAndTogglePurchase(this)">
+                 <td>
+                     Burger
+                 </td>
+                 <td>
+                     $2.00
+                 </td>
+                 <td>
+                     <input type="checkbox" onchange="togglePurchase(this)"/>
+                 </td>
+             </tr>
+             <tr onclick="checkAndTogglePurchase(this)">
+                 <td>
+                     Cheeseburger
+                 </td>
+                 <td>
+                     $2.50
+                 </td>
+                 <td>
+                     <input type="checkbox" onchange="togglePurchase(this)" />
+                 </td>
+             </tr>
+             <tr onclick="checkAndTogglePurchase(this)">
+                 <td>
+                     Fries
+                 </td>
+                 <td>
+                     $1.50
+                 </td>
+                 <td>
+                     <input type="checkbox" onchange="togglePurchase(this)" />
+                 </td>
+                 <tr onclick="checkAndTogglePurchase(this)">
+                     <td>
+                         Soft Drink
+                     </td>
+                     <td>
+                         $1.00
+                     </td>
+                     <td>
+                         <input type="checkbox" onchange="togglePurchase(this)" />
+                     </td>
+                 </tr>
+         </table>
+     </div>
+   #+END_SRC
+   #+BEGIN_SRC javascript :tangle week07.js
+     function togglePurchase(element) {
+         var itemValue = element.parentElement.previousElementSibling.innerHTML;
+         var number = Number(itemValue.replace(/[^0-9\.]+/g,"")); 
+         var tax = .08;
+         var shippingCost = 5;
+         if (!element.checked) {
+             number *= -1;
+         }
+         var totalAmount = Number(document.getElementById('total_money').innerHTML.replace(/[^0-9\.]+/g,"")) + number;
+         // update total
+         document.getElementById('total_money').innerHTML = totalAmount.toFixed(2);
+         // update shipping
+         var shippingAmount = shippingCost * Number(Boolean(totalAmount));
+         document.getElementById('shipping_money').innerHTML = shippingAmount.toFixed(2);
+         // update tax
+         var taxAmount = Number(document.getElementById('tax_money').innerHTML.replace(/[^0-9\.]+/g,"")) + number * tax;
+         document.getElementById('tax_money').innerHTML = taxAmount.toFixed(2);
+         // update final
+         var finalAmount = totalAmount + shippingAmount + taxAmount;
+         document.getElementById('final_money').innerHTML = finalAmount.toFixed(2);
+     }
+
+     function checkAndTogglePurchase(row) {
+         var checkbox = row.getElementsByTagName("input")[0];
+         checkbox.checked = !checkbox.checked;
+         togglePurchase(checkbox);
+     }
+   #+END_SRC
+** Total
+   Total how much will be charged to the user. At a minimum, this should
+   tabulate all the items in the shopping cart. Additionally, you may want to
+   include tax and shipping as well.
+   #+BEGIN_SRC web :tangle week07.html
+     <div id="total">
+         <h2>Total</h2>
+         <h3>Items</h3>
+         <p>
+             $ <span id="total_money">0.00</span>
+         </p>
+         <h3>Shipping</h3>
+         <p>
+             $ <span id="shipping_money">0.00</span>
+         </p>
+         <h3>Tax</h3>
+         <p>
+             $ <span id="tax_money">0.00</span>
+         </p>
+         <h3>Total Amount</h3>
+         <p>
+             $ <span id="final_money">0.00</span>
+         </p>
+     </div>
+   #+END_SRC
+** Payment Information
+   Allow the customer to indicate payment information. This is usually in the
+   form of the card type (Visa, MasterCard, American Express, etc.), the card
+   number, and the expiration date.
+   #+BEGIN_SRC web :tangle week07.html
+     <div>
+         <h2>Payment Information</h2>
+         <input name="creditcardnumber" type="text" placeholder="Credit Card #"
+                onblur="validate(this,
+                              '\^\\d\{4\} \?\\d\{4\} \?\\d\{4\} \?\\d\{4\}\$',
+                              'Invalid Card Number')">
+         <span class="error" aria-live="polite"></span>
+         <br/>
+         <select>
+             <option value="VISA">Visa</option>
+             <option value="MASTERCARD">MasterCard</option>
+             <option value="AMEX">American Express</option>
+             <option value="DISC">Discover</option>
+             <option value="CAPONE">Capital One.</option>
+         </select>
+         <input name="creditcardexpdate" type="text" placeholder="Exp. Date (01/2017)"
+                onblur="validate(this,
+                              '\^((0?[1-9]|1[0-2])/(201[7-9]|20[2-9][0-9]))\$',
+                              'Invalid Expiration Date')">
+         <span class="error" aria-live="polite"></span>
+     </div>
+   #+END_SRC
+** Submit & Reset
+   The customer needs to have the ability to complete the order or reset the
+   form. If the order is completed successfully, we don't need to send the data
+   to an actual server. In other words, This program does not require server
+   side validation, so the action attribute is still undefined. We will learn
+   how to do that part later in the semester.
+   #+BEGIN_SRC web :tangle week07.html
+     <div id="submission">
+         <input name="submit" type="submit" value="Submit"/>
+         <input name="reset" type="reset" value="Reset"/>
+     </div>
+   #+END_SRC
+   #+BEGIN_SRC javascript :tangle week07.js
+     function checkAllInputs(form) {
+         var inputs = [].slice.call(form.getElementsByTagName('input'));
+         var textInputs = inputs.filter(function(element) {if (element.getAttribute("type") == "text" && element.value == "") { return true; } return false;});
+         if (textInputs.length != 0) {
+             textInputs.forEach(function(element){validate(element, " ", "Missing Input")});
+             return false;
+         }
+         return true;
+     }
+     function clearAllInputs(form) {
+         var inputs = [].slice.call(form.getElementsByTagName('input'));
+         var textInputs = inputs.filter(function(element) {if (element.getAttribute("type") == "text" && element.value == "") { return true; } return false;});
+         textInputs.forEach(function(element){element.value = ""; validate(element, "", "")});
+     }
+   #+END_SRC
+** Footer
+   #+BEGIN_SRC web :tangle week07.html
+     </form>
+     </body>
+     </html>
+   #+END_SRC
