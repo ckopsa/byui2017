@@ -842,36 +842,46 @@ True
           else:
               falsePositive = falsePositive + 1
       return float(truePositive) / len(output)
-
+  def outputize(num, length):
+      output = [0] * length
+      output[num-1] = 1
+      return output
 
   df = pd.read_csv("iris.data", header = None, names = ["sepal_length",
                                                         "sepal_width",
                                                         "petal_length",
                                                         "petal_width", "class"])
+  df = df.sample(frac=1)
   df_input = df.drop("class", axis=1)
   df_norm = (df_input - df_input.mean()) / (df_input.max() - df_input.min())
   classifier = create_classifier(4, 4, 3)
   trained_classifier = train(df_norm.loc[0], [1, 0, 0], classifier, 3)[:-1][0]
   print classifier
   print trained_classifier[0]
-  for i in range(100):
-      trained_classifier = train(df_norm.loc[0], [1, 0, 0], trained_classifier, 3)[:-1][0]
-  print trained_classifier[0]
-  output = map(np.argmax, [classify(row, classifier) for index, row in df_norm.iterrows()])
   classes = list(set(df["class"]))
-  accuracy(output, [classes.index(x) for x in df["class"]])
+  targetVector = [classes.index(x) for x in df["class"]]
+  for i in range(1000):
+      for index, row in df_norm.iterrows():
+          trained_classifier = train(row, outputize(targetVector[index], 3), trained_classifier, 3)[:-1][0]
+  print trained_classifier[0]
+  output = map(np.argmax, [classify(row, trained_classifier) for index, row in df_norm.iterrows()])
+  print accuracy(output, targetVector)
 
   df = pd.read_csv("diabetes.data", header = None)
   df_input = df.drop(list(df)[-1], axis=1)
   df_norm = (df_input - df_input.mean()) / (df_input.max() - df_input.min())
   df_norm
-
   #+END_SRC
 
   #+RESULTS:
-  : [[[-0.41712575876405156, 0.4831660507142026, -0.64442449797078, 0.13999394536578214, -0.19243989295841213], [-0.44196725952160776, 0.7327446231707748, 0.6559290352473901, -0.7127274963651618, 0.6054898062893088], [0.047278835270736064, -0.45011835331497285, -0.6651722403820035, 0.34572187119044817, -0.3398690608916224], [-0.30322750755609107, 0.047589530209465325, 0.7608056830098389, -0.04130426550215627, 0.6092299160427792]], [[-0.8349596526074847, -0.17196735699330534, -0.3310171277254059, -0.054089114849626974, 0.3766500859266524], [0.9754657144056682, 0.06119401938782354, -0.575221091599496, -0.7552675508914888, 0.38722104888037867], [0.24553759327527325, 0.8039687402848799, 0.29698819513708496, 0.7205976926195432, -0.6560997961845756]]]
-  : [[-0.4512922006079092, 0.44899960887034496, -0.67859093981463769, 0.10582750352192449, -0.22660633480226977], [-0.44190378779503725, 0.73280809489734533, 0.65599250697396061, -0.71266402463859124, 0.60555327801587933], [0.030974443566830961, -0.46642274501887793, -0.68147663208590858, 0.3294174794865431, -0.35617345259552746], [-0.26396089084506796, 0.086856146920488417, 0.80007229972086191, -0.0020376487911331759, 0.64849653275380226]]
-  : [[0.46109274239789722, 1.3613845518761509, 0.23379400319116869, 1.0182124465277307, 0.68577860820353698], [0.28234586666595907, 1.4570577493583419, 1.3802421614349571, 0.011585629822404946, 1.3298029324768759], [0.92415489073918144, 0.4267577021534727, 0.21170381508644179, 1.2225979266588944, 0.53700699457682322], [0.2869197477383354, 0.6377367855038919, 1.3509529383042633, 0.54884298979226998, 1.1993771713372037]]
+  [[0.88502308916241657, 1.8060592992466706, 0.63154927006937212,
+  1.3703525247506094, 0.47994232331617676], [0.92162965568098121,
+  1.3120830002514556, 1.4498923016439196, 1.2309626401726534,
+  1.1320316965329682], [1.7043687857458418, 1.5244942425352885,
+  0.5742307195257127, 0.9818885955651564, 1.6424403667152454],
+  [2.0888920256399715, 1.1201062482151225, 1.2728713223456019,
+  0.45970585477951181, 1.3621746553216556]]
+  : 0.333333333333
 
 * Python Thought of the Day
 ** Code
