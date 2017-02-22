@@ -790,7 +790,7 @@ True
 8. A complete dataset (e.g., iris) can be classified and the overall accuracy reported.
 True
 
-** Code
+** TODO Code
 #+BEGIN_SRC python :results output :tangle neural_net.py
   import pandas as pd
   import numpy as np
@@ -807,7 +807,8 @@ True
   def calc_error_hidden(activation, weights, error):
       return activation * (1 - activation) * sum(map(lambda x,y:x*y, weights, error)) 
   def calc_weight(current_weight, learning_rate, error, activation):
-      return list(np.subtract(current_weight, (learning_rate * error * activation)))
+      new_weight = list(np.subtract(current_weight, (learning_rate * error * activation)))
+      return new_weight
   def create_classifier(numInputs, *layers):
       layer = layers[0]
       if len(layers) == 1:
@@ -824,7 +825,7 @@ True
       else:
           jk_weights, k_error = train(current_output, targetVector, neural_net[1:], learningRate)
           j_error = map(lambda x,y:calc_error_hidden(x, y, k_error), current_output, zip(*jk_weights[0])[1:])
-          return [map(lambda x:calc_weight(x[0], learningRate, x[1], x[2]), zip(neural_net[0], j_error, current_output))] + jk_weights, j_error
+          return [map(lambda x:calc_weight(x[0], learningRate, x[1], x[2]), zip(neural_net[0], j_error, inputVector))] + jk_weights, j_error
   def classify(inputVector, neural_net):
       current_output = map(lambda neuron_weights:
                            calc_activation(calc_threshold(inputVector, neuron_weights)),
@@ -846,7 +847,6 @@ True
       output = [0] * length
       output[num-1] = 1
       return output
-
   df = pd.read_csv("iris.data", header = None, names = ["sepal_length",
                                                         "sepal_width",
                                                         "petal_length",
@@ -854,17 +854,16 @@ True
   df = df.sample(frac=1)
   df_input = df.drop("class", axis=1)
   df_norm = (df_input - df_input.mean()) / (df_input.max() - df_input.min())
-  classifier = create_classifier(4, 4, 3)
-  trained_classifier = train(df_norm.loc[0], [1, 0, 0], classifier, 3)[:-1][0]
-  print classifier
-  print trained_classifier[0]
+  
+  classifier = create_classifier(4, 4, 4, 3)
   classes = list(set(df["class"]))
   targetVector = [classes.index(x) for x in df["class"]]
-  for i in range(1000):
+  for i in range(200):
       for index, row in df_norm.iterrows():
-          trained_classifier = train(row, outputize(targetVector[index], 3), trained_classifier, 3)[:-1][0]
-  print trained_classifier[0]
-  output = map(np.argmax, [classify(row, trained_classifier) for index, row in df_norm.iterrows()])
+          classifier = train(row, outputize(targetVector[index], 3), classifier, 1)[:-1][0]
+  print classifier[0]
+  output = map(np.argmax, [classify(row, classifier) for index, row in df_norm.iterrows()])
+  print output
   print accuracy(output, targetVector)
 
   df = pd.read_csv("diabetes.data", header = None)
@@ -874,13 +873,8 @@ True
   #+END_SRC
 
   #+RESULTS:
-  [[0.88502308916241657, 1.8060592992466706, 0.63154927006937212,
-  1.3703525247506094, 0.47994232331617676], [0.92162965568098121,
-  1.3120830002514556, 1.4498923016439196, 1.2309626401726534,
-  1.1320316965329682], [1.7043687857458418, 1.5244942425352885,
-  0.5742307195257127, 0.9818885955651564, 1.6424403667152454],
-  [2.0888920256399715, 1.1201062482151225, 1.2728713223456019,
-  0.45970585477951181, 1.3621746553216556]]
+  : [[1.9610874873261708, 0.57700853888113346, 2.053164749702951, 1.6164381574091269, 0.67081922287565976], [-1.2779131379153537, -0.71118027293140862, -0.39979359474776099, -1.4567157827571404, -0.95045808609737892], [1.3370184927705284, 2.1744893163751398, 0.81584435013646472, 1.9930164499280769, 1.9985675592156906], [0.47826479897094459, 0.88203642012603778, 0.12447573351835133, 0.2183090771996144, 1.6154870640187202]]
+  : [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
   : 0.333333333333
 
 * Python Thought of the Day
